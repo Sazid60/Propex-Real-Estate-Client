@@ -1,11 +1,7 @@
 
 
-// eslint-disable-next-line react/prop-types
-const PropertyCard = ({ property, handleDelete}) => {
-    // eslint-disable-next-line react/prop-types
-    const {_id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status } = property
-
-
+const AllPropertyCard = ({property}) => {
+    const { title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status } = property
     return (
         <div className="bg-base-100 shadow-md p-2 rounded-none hover:shadow-2xl">
             <figure className="w-full">
@@ -33,9 +29,7 @@ const PropertyCard = ({ property, handleDelete}) => {
                         </div>
                         <div className="flex flex-col w-full xl:w-auto">
                             <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">Update</button>
-                            <button 
-                            onClick={()=>handleDelete(_id)}
-                            className="btn btn-sm bg-red-600 text-white w-full font-semibold">Delete</button>
+                            <button className="btn btn-sm bg-red-600 text-white w-full font-semibold">Delete</button>
                         </div>
                     </div>
                 </div>
@@ -44,4 +38,4 @@ const PropertyCard = ({ property, handleDelete}) => {
     );
 };
 
-export default PropertyCard;
+export default AllPropertyCard;
