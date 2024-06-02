@@ -17,6 +17,8 @@ const AddProperty = () => {
         onSuccess: () => {
           console.log('Property Have been added successfully')
           toast.success('Property Have been added successfully')
+        //   reset the form
+          document.getElementById("add-property-form").reset();
         },
       })
 
@@ -49,6 +51,7 @@ const AddProperty = () => {
                     propertyImage,
                     agentName,
                     agentEmail,
+                    agentImage: user?.photoURL,
                     maxPrice,
                     minPrice,
                     verification_status: 'pending',
@@ -69,7 +72,7 @@ const AddProperty = () => {
         <div className="flex items-center justify-center min-h-screen ">
             <div className="bg-white p-4 rounded shadow-md w-full max-w-4xl">
                 <h2 className="text-2xl font-bold mb-6 text-center">ADD YOUR PROPERTY</h2>
-                <form onSubmit={handleSubmit}
+                <form id="add-property-form" onSubmit={handleSubmit}
                 >
                     <div className="mb-4">
                         <label className="block text-gray-700">Property Title</label>
