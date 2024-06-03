@@ -3,27 +3,47 @@ import useAuth from "../../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { useMutation } from '@tanstack/react-query'
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
-
+import { useEffect, useState } from "react";
 
 const AddProperty = () => {
     const { user } = useAuth()
     const axiosSecure = useAxiosSecure()
+    const [isFraud, setIsFraud] = useState(false)
+
+    useEffect(() => {
+        const fetchFraudStatus = async () => {
+            if (user?.email) {
+                try {
+                    const { data } = await axiosSecure.get(`/user/fraudCheck/${user.email}`)
+                    console.log(data)
+                    setIsFraud(data.status === 'fraud');
+                } catch (error) {
+                    console.error('Error fetching fraud status:', error);
+                }
+            }
+        }
+
+        fetchFraudStatus();
+    }, [axiosSecure, user?.email])
 
     const { mutateAsync } = useMutation({
         mutationFn: async propertyInfo => {
-          const { data } = await axiosSecure.post(`/property`, propertyInfo)
-          return data
+            const { data } = await axiosSecure.post(`/property`, propertyInfo)
+            return data
         },
         onSuccess: () => {
-          console.log('Property Have been added successfully')
-          toast.success('Property Have been added successfully')
-        //   reset the form
-          document.getElementById("add-property-form").reset();
+            console.log('Property has been added successfully')
+            toast.success('Property has been added successfully')
+            // reset the form
+            document.getElementById("add-property-form").reset();
         },
-      })
+    })
 
     const handleSubmit = async e => {
         e.preventDefault();
+        if (isFraud) {
+            return toast.error('You Are Fraud! You Can Not Add!')
+        }
         const form = e.target
         const title = form.title.value;
         const location = form.location.value;
@@ -42,9 +62,7 @@ const AddProperty = () => {
                 formData
             )
             const propertyImage = data.data.display_url;
-            // console.log(propertyImage);
             try {
-                // console.log(title, location, propertyImage, agentName, agentEmail, maxPrice, minPrice)
                 const propertyInfo = {
                     title,
                     location,
@@ -59,7 +77,7 @@ const AddProperty = () => {
                 }
                 console.log(propertyInfo)
 
-                await  mutateAsync (propertyInfo)
+                await mutateAsync(propertyInfo)
 
             } catch (error) {
                 toast.error(error.message)
@@ -68,23 +86,23 @@ const AddProperty = () => {
             toast.error(error.message)
         }
     }
+
     return (
         <div className="flex items-center justify-center min-h-screen ">
             <div className="bg-white p-4 rounded shadow-md w-full max-w-4xl">
                 <h2 className="text-2xl font-bold mb-6 text-center">ADD YOUR PROPERTY</h2>
-                <form id="add-property-form" onSubmit={handleSubmit}
-                >
+                <form id="add-property-form" onSubmit={handleSubmit}>
                     <div className="mb-4">
                         <label className="block text-gray-700">Property Title</label>
                         <input
                             type="text"
                             id="title"
-                            className="mt-1  w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             required
                         />
                     </div>
                     <div className="mb-4">
-                        <label className=" text-gray-700">Property Location</label>
+                        <label className="text-gray-700">Property Location</label>
                         <input
                             type="text"
                             id="location"
@@ -106,23 +124,23 @@ const AddProperty = () => {
                         <input
                             type="text"
                             id="agentName"
-                            value={user?.displayName}
+                            value={user?.displayName || ''}
                             readOnly
                             className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
-                        <label className=" text-gray-700">Agent Email</label>
+                        <label className="text-gray-700">Agent Email</label>
                         <input
                             type="email"
                             id="agentEmail"
-                            value={user?.email}
+                            value={user?.email || ''}
                             readOnly
                             className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
-                        <label className=" text-gray-700">Minimum Price</label>
+                        <label className="text-gray-700">Minimum Price</label>
                         <input
                             type="number"
                             id="minPrice"
