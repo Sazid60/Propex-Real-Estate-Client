@@ -3,6 +3,7 @@ import toast from "react-hot-toast";
 import { FaRegEye, FaRegEyeSlash } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { AuthContext } from "../../providers/AuthProvider";
+import axios from "axios";
 
 
 
@@ -12,7 +13,7 @@ const Login = () => {
     const [success, setSuccess] = useState("")
     const [errorMessage, setErrorMessage] = useState("")
 
-    const { logInUser, googleLogin } = useContext(AuthContext)
+    const { logInUser, googleLogin, user } = useContext(AuthContext)
     const location = useLocation()
 
     const navigate = useNavigate()
@@ -43,20 +44,31 @@ const Login = () => {
     }
 
     // Social 
-    const handleSocialLogin = () => {
+    const handleSocialLogin = async (socialLoginProvider) => {
+        try {
+           const result =  await socialLoginProvider();
+           console.log(result)
+            if (!user) {
+                const currentUser = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    role: 'user',
+                    status: 'verified',
+                }
+                await axios.post(`${import.meta.env.VITE_DATABASE_URL}/user`, currentUser)
 
-        googleLogin()
-            .then(() => {
-                toast.success('Login Successful')
-                setSuccess("Successfully Logged In")
-                navigate(location?.state ? location.state : "/")
-            })
-            .catch((error) => {
-                setErrorMessage(error.message)
-                toast.error(error.message)
-                console.log(error)
-            })
-    }
+                toast.success('Login Successful');
+                setSuccess("Successfully Logged in");
+                navigate(location?.state ? location.state : "/");
+            } else {
+                toast.error('Already User Created');
+                setErrorMessage("Already User Created");
+            }
+        } catch (error) {
+            setErrorMessage(error.message);
+            toast.error(error.message);
+        }
+    };
 
     return (
         <div className="flex w-full justify-center min-h-[40vh] lg:mb-4">
@@ -103,7 +115,7 @@ const Login = () => {
                     </form>
                     <div className="divider text-gray-700">Continue With</div>
                     <div className="flex justify-center items-center  mb-6 pb-0">
-                        <div onClick={() => handleSocialLogin()} className='flex cursor-pointer items-center justify-center  text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 w-full m-6 '>
+                        <div onClick={() => handleSocialLogin(googleLogin)} className='flex cursor-pointer items-center justify-center  text-gray-600 transition-colors duration-300 transform border rounded-lg   hover:bg-gray-50 w-full m-6 '>
                             <div className='px-4 py-2'>
                                 <svg className='w-6 h-6' viewBox='0 0 40 40'>
                                     <path

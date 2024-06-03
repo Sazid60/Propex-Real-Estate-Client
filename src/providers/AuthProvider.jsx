@@ -57,17 +57,17 @@ const AuthProvider = ({ children }) => {
         return signOut(auth)
     }
 
-    const saveUserData = async user => {
-        const currentUser = {
-          email: user?.email,
-          role: 'user',
-          status: 'Verified',
-        }
-        const { data } = await axios.post(`${import.meta.env.VITE_DATABASE_URL}/user`,
-          currentUser
-        )
-        return data
-      }
+    // const saveUserData = async user => {
+    //     const currentUser = {
+    //       email: user?.email,
+    //       role: 'user',
+    //       status: 'Verified',
+    //     }
+    //     const { data } = await axios.post(`${import.meta.env.VITE_DATABASE_URL}/user`,
+    //       currentUser
+    //     )
+    //     return data
+    //   }
 
     // Observer
     useEffect(() => {
@@ -80,7 +80,7 @@ const AuthProvider = ({ children }) => {
                 .then(data =>{
                     console.log(data.data.token)
                     localStorage.setItem('access-token', data.data.token)
-                    saveUserData(currentUser)
+                    // saveUserData(currentUser)
                     setLoading(false);
                 })
             }

@@ -58,6 +58,13 @@ const Register = () => {
                 await updateUser(name, imageUrl);
 
                 setUser({ displayName: name, photoURL: imageUrl, email: email });
+                const currentUser = {
+                    email: email,
+                    name: name,
+                    role: 'user',
+                    status: 'verified',
+                }
+                await axios.post(`${import.meta.env.VITE_DATABASE_URL}/user`, currentUser)
 
                 toast.success('Registration Successful.');
                 setSuccess("Successfully Registered");
@@ -76,8 +83,17 @@ const Register = () => {
     // Social Login
     const handleSocialLogin = async (socialLoginProvider) => {
         try {
-            await socialLoginProvider();
+           const result =  await socialLoginProvider();
+           console.log(result)
             if (!user) {
+                const currentUser = {
+                    email: result.user?.email,
+                    name: result.user?.displayName,
+                    role: 'user',
+                    status: 'verified',
+                }
+                await axios.post(`${import.meta.env.VITE_DATABASE_URL}/user`, currentUser)
+
                 toast.success('Registration Successful');
                 setSuccess("Successfully Registered");
                 navigate(location?.state ? location.state : "/");
