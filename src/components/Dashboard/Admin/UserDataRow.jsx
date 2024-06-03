@@ -1,6 +1,6 @@
 import useAuth from "../../../hooks/useAuth";
 
-const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAgent}) => {
+const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAgent,handleMarkAsFraud}) => {
     const {_id,email,role,status,name} = single_user
 
     const {user} = useAuth()
@@ -44,7 +44,7 @@ const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAge
             {
                 role === "agent" && status !=="fraud" &&
                 <button
-                    // onClick={() => handleMarkAsFraud(user._id)}
+                    onClick={() => handleMarkAsFraud(_id, email)}
                     className=' btn btn-sm bg-yellow-500 text-white px-2 py-1 rounded whitespace-nowrap'
                 >
                     Mark as Fraud
@@ -52,7 +52,7 @@ const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAge
             }
             {
                 status === 'fraud' &&
-                <span className='text-red-600 font-bold'>FRAUD</span>
+                <span className='text-red-600 font-bold whitespace-nowrap'>FRAUD</span>
             }
         </td>
         <td className='px-5 py-3 border-b text-xs sm:text-sm'>

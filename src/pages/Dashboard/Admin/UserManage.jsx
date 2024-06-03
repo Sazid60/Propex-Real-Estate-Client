@@ -40,7 +40,7 @@ const UserManage = () => {
 
     // handle make agent
     const handleMakeAgent= async (id,role) => {
-        console.log(id)
+        // console.log(id)
         try {
             if(role==="agent"){
                 return toast.error('User Is Already Agent')
@@ -49,7 +49,18 @@ const UserManage = () => {
             refetch()
             toast.success('Role Updated to Agent')
         } catch (error) {
-            console.error('Error verifying property:', error);
+            console.error(error);
+        }
+    }
+
+    // mark as fraud
+    const handleMarkAsFraud = async (id, email) =>{
+        try {
+            await axiosSecure.patch(`/users/fraud/${id}`, {status:'fraud', email:email });
+            refetch()
+            toast.success('Agent Marked as Fraud')
+        } catch (error) {
+            console.error(error);
         }
     }
 
@@ -114,6 +125,7 @@ const UserManage = () => {
                                     handleDeleteUser={handleDeleteUser}
                                     handleMakeAdmin={handleMakeAdmin}
                                     handleMakeAgent={handleMakeAgent}
+                                    handleMarkAsFraud={handleMarkAsFraud}
                                 ></UserDataRow>)
                             }
                         </tbody>
