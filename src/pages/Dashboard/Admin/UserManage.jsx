@@ -24,13 +24,33 @@ const UserManage = () => {
     }
 
     // handle make admin
-    const handleMakeAdmin= async (id) => {
-        console.log(id)
+    const handleMakeAdmin= async (id,role) => {
+        try {
+            if(role==="admin"){
+                return toast.error('User Is Already Admin')
+            }
+            await axiosSecure.patch(`/users/admin/${id}`, {role:'admin'});
+            refetch()
+            toast.success('Role Updated to Admin')
+        } catch (error) {
+            console.error('Error verifying property:', error);
+        }
+        
     }
 
     // handle make agent
-    const handleMakeAgent= async (id) => {
+    const handleMakeAgent= async (id,role) => {
         console.log(id)
+        try {
+            if(role==="agent"){
+                return toast.error('User Is Already Agent')
+            }
+            await axiosSecure.patch(`/users/agent/${id}`, {role:'agent'});
+            refetch()
+            toast.success('Role Updated to Agent')
+        } catch (error) {
+            console.error('Error verifying property:', error);
+        }
     }
 
     // console.log(users)

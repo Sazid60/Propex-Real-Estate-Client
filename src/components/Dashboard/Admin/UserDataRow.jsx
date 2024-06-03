@@ -20,8 +20,8 @@ const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAge
             {
                 status !== "fraud" &&
                 <button
-                disabled={role==="admin" || user?.email===email}
-                    onClick={() => handleMakeAdmin(_id)}
+                disabled={ user?.email===email}
+                    onClick={() => handleMakeAdmin(_id,role)}
                     className='btn btn-sm bg-blue-500 text-white px-2 py-1 rounded whitespace-nowrap'
                 >
                     Make Admin
@@ -32,8 +32,8 @@ const UserDataRow = ({single_user,handleDeleteUser,handleMakeAdmin,handleMakeAge
             {
                 status !== "fraud" && 
                 <button
-                    onClick={() => handleMakeAgent(_id)}
-                    disabled={role==="agent" || user?.email===email}
+                    onClick={() => handleMakeAgent(_id,role)}
+                    disabled={ user?.email===email}
                     className='btn btn-sm bg-green-500 text-white px-2 py-1 rounded whitespace-nowrap'
                 >
                     Make Agent
