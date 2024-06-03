@@ -23,6 +23,7 @@ import AddProperty from "../pages/Dashboard/Agent/AddProperty";
 import MyAddedProperty from "../pages/Dashboard/Agent/MyAddedProperty";
 import MySoldProperty from "../pages/Dashboard/Agent/MySoldProperty";
 import Common from "../pages/Dashboard/Common";
+import PropertyUpdate from "../pages/Dashboard/Agent/PropertyUpdate";
 
 
 
@@ -107,6 +108,10 @@ export const router = createBrowserRouter([
             {
                 path: 'sold-properties',
                 element: <MySoldProperty></MySoldProperty>,
+            },
+            {
+                path: 'my-added-property/property-update/:id',
+                element: <PropertyUpdate></PropertyUpdate>,
             },
         ]
 

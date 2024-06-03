@@ -1,9 +1,10 @@
+import { Link } from "react-router-dom";
 
 
 // eslint-disable-next-line react/prop-types
-const PropertyCard = ({ property, handleDelete}) => {
+const PropertyCard = ({ property, handleDelete }) => {
     // eslint-disable-next-line react/prop-types
-    const {_id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status } = property
+    const { _id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status } = property
 
 
     return (
@@ -32,10 +33,17 @@ const PropertyCard = ({ property, handleDelete}) => {
                             </div>
                         </div>
                         <div className="flex flex-col w-full xl:w-auto">
-                            <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">Update</button>
-                            <button 
-                            onClick={()=>handleDelete(_id)}
-                            className="btn btn-sm bg-red-600 text-white w-full font-semibold">Delete</button>
+                            {verification_status !== 'rejected' && (
+                                <Link to={`property-update/${_id}`}>
+                                    <button
+                                        className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">
+                                        Update
+                                    </button>
+                                </Link>
+                            )}
+                            <button
+                                onClick={() => handleDelete(_id)}
+                                className="btn btn-sm bg-red-600 text-white w-full font-semibold">Delete</button>
                         </div>
                     </div>
                 </div>
