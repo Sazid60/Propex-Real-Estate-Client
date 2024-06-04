@@ -135,6 +135,13 @@ const PropertyUpdate = () => {
                             required
                         />
                     </div>
+                    <div className="mb-4">
+                        <label className="text-gray-700">Description</label>
+                        <textarea id="description" name="description" rows="4" 
+                        value={propertyData.description || ''}
+                        onChange={(e)=>setPropertyData({ ...propertyData, description: e.target.value })}
+                        className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
+                    </div>
                     <div>
                         <button
                             type="submit"

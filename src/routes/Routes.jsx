@@ -49,7 +49,7 @@ export const router = createBrowserRouter([
                 element: <PrivateRoute><AllProperties /></PrivateRoute>,
             },
             {
-                path: '/property-details',
+                path: '/property-details/:id',
                 element: <PrivateRoute><PropertyDetails /></PrivateRoute>,
             },
             { path: '/login', element: <Login /> },

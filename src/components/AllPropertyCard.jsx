@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const AllPropertyCard = ({ property }) => {
-    const { title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status } = property
+    const { _id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status, description } = property
     return (
         <>
             {
@@ -15,8 +15,13 @@ const AllPropertyCard = ({ property }) => {
                     </figure>
                     <div className="p-2">
                         <h2 className="font-bold text-sm md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">{title}</h2>
-                        <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-xl mb-2 mt-3 text-center">Price: <span className="text-blue-500">$ {minPrice} - $ {maxPrice}</span></p>
-                        <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-xl mb-2 mt-3 text-center">Location: <span className="font-normal">{location}</span></p>
+                        <p className="mb-4 text-xs md:text-lg lg:text-lg text-center" >
+                            {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
+                        </p>
+                        <div className="">
+                            <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-sm mb-2 mt-3 text-center">Price: <span className="text-blue-500">$ {minPrice} - $ {maxPrice}</span></p>
+                            <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-sm mb-2 mt-3 text-center">Location: <span className="font-normal">{location}</span></p>
+                        </div>
                         <div className="">
                             <h1 className="text-center text-xs md:text-xs lg:text-sm font-semibold mb-2 mt-4 text-blue-800">ADDED BY</h1>
                             <hr className="mb-2 mt-1 border-t-1 border-gray-300" />
@@ -31,7 +36,7 @@ const AllPropertyCard = ({ property }) => {
                                     </div>
                                 </div>
                                 <div className="flex flex-col w-full xl:w-auto">
-                                    <Link to={'/property-details'}>
+                                    <Link to={`/property-details/${_id}`}>
                                         <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">View Details</button>
                                     </Link>
                                 </div>

@@ -52,36 +52,35 @@ const AddProperty = () => {
         const agentEmail = form.agentEmail.value;
         const minPrice = form.minPrice.value;
         const maxPrice = form.maxPrice.value;
+        const description = form.description.value;
+
 
         const formData = new FormData();
         formData.append('image', propImage);
 
+        const { data } = await axios.post(
+            `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
+            formData
+        )
+        const propertyImage = data.data.display_url;
+
         try {
-            const { data } = await axios.post(
-                `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_IMGBB_API_KEY}`,
-                formData
-            )
-            const propertyImage = data.data.display_url;
-            try {
-                const propertyInfo = {
-                    title,
-                    location,
-                    propertyImage,
-                    agentName,
-                    agentEmail,
-                    agentImage: user?.photoURL,
-                    maxPrice,
-                    minPrice,
-                    verification_status: 'pending',
-                    selling_status: 'unsold'
-                }
-                console.log(propertyInfo)
-
-                await mutateAsync(propertyInfo)
-
-            } catch (error) {
-                toast.error(error.message)
+            const propertyInfo = {
+                title,
+                location,
+                propertyImage,
+                agentName,
+                agentEmail,
+                agentImage: user?.photoURL,
+                maxPrice,
+                minPrice,
+                description,
+                verification_status: 'pending',
+                selling_status: 'unsold'
             }
+            console.log(propertyInfo)
+
+            await mutateAsync(propertyInfo)
         } catch (error) {
             toast.error(error.message)
         }
@@ -156,6 +155,10 @@ const AddProperty = () => {
                             className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             required
                         />
+                    </div>
+                    <div className="mb-4">
+                        <label className="text-gray-700">Description</label>
+                        <textarea id="description" name="description" rows="4" className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
                     </div>
                     <div>
                         <button
