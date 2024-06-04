@@ -26,6 +26,7 @@ const PropertyReviewCard = ({ single_review }) => {
                 </div>
             </div>
             <div className="p-4 space-y-2 text-sm dark:text-gray-600 text-center">
+                <p className="font-bold uppercase">PROPERTY: <span className="text-blue-700">{reviewedPropertyName}</span></p>
                 <p>
                     {review.split(' ').slice(0, 10).join(' ') + (review.split(' ').length > 10 ? '...' : '')}
                 </p>

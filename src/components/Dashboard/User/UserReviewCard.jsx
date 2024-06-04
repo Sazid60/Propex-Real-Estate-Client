@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 
 
-const UserReviewCard = ({single_review,handleDeleteReview}) => {
+const UserReviewCard = ({ single_review, handleDeleteReview }) => {
     const { _id, review, reviewerName, reviewerImage, reviewedPropertyId, reviewedPropertyName, reviewedTime, rating } = single_review
 
     const formatDate = (dateString) => {
@@ -9,7 +9,7 @@ const UserReviewCard = ({single_review,handleDeleteReview}) => {
         return new Date(dateString).toLocaleDateString(undefined, options);
     };
     return (
-        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+        <div className="container flex flex-col w-full max-w-lg p-6 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800 shadow-xl">
             <div className="flex justify-between p-4">
                 <div className="flex space-x-4">
                     <div>
@@ -25,7 +25,8 @@ const UserReviewCard = ({single_review,handleDeleteReview}) => {
                     <span className="text-xl font-bold">{rating}</span>
                 </div>
             </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-600 text-center h-16">
+            <div className="p-4 space-y-2 text-sm dark:text-gray-600 text-center h-24">
+                <p className="font-bold uppercase">PROPERTY: <span className="text-blue-700">{reviewedPropertyName}</span></p>
                 <p>
                     {review.split(' ').slice(0, 10).join(' ') + (review.split(' ').length > 10 ? '...' : '')}
                 </p>

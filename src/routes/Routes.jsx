@@ -9,7 +9,6 @@ import Login from "../pages/Login/Login";
 import Register from "../pages/Register/Register";
 import AllProperties from "../pages/AllPropertiesPage/AllProperties";
 import DashboardLayout from "../layouts/DashboardLayout";
-
 import UserProfile from "../pages/Dashboard/User/UserProfile";
 import UserWishlist from "../pages/Dashboard/User/UserWishlist";
 import UserProperty from "../pages/Dashboard/User/UserProperty";
@@ -28,6 +27,7 @@ import PropertyDetails from "../pages/PropertyDetails/PropertyDetails";
 import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
+import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 
 
 
@@ -98,6 +98,10 @@ export const router = createBrowserRouter([
             {
                 path: 'manage-reviews',
                 element: <AdminRoute><ReviewManage /></AdminRoute>,
+            },
+            {
+                path: 'advertise-property',
+                element: <AdminRoute><AdvertiseProperty /></AdminRoute>,
             },
 
             // Agent Routes

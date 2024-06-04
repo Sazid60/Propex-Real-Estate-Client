@@ -76,7 +76,8 @@ const AddProperty = () => {
                 minPrice,
                 description,
                 verification_status: 'pending',
-                selling_status: 'unsold'
+                selling_status: 'unsold',
+                advertised:'no'
             }
             console.log(propertyInfo)
 

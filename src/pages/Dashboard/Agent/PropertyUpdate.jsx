@@ -4,11 +4,14 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { useState, useEffect } from "react";
 import toast from "react-hot-toast";
 import axios from "axios";
+import { AiOutlineLoading } from "react-icons/ai";
 
 const PropertyUpdate = () => {
     const axiosSecure = useAxiosSecure();
     const { id } = useParams();
     const navigate = useNavigate()
+
+    const [uploading, setUploading] = useState(false)
 
     const { data: property = {} } = useQuery({
         queryKey: ['property', id],
@@ -26,6 +29,7 @@ const PropertyUpdate = () => {
 
     const handleImage = async (image) => {
         try {
+            setUploading(true)
             const formData = new FormData();
             formData.append('image', image);
 
@@ -35,6 +39,7 @@ const PropertyUpdate = () => {
             );
             const image_url = data.data.display_url;
             setPropertyData({ ...propertyData, propertyImage: image_url });
+            setUploading(false)
         } catch (error) {
             console.log(error);
             toast.error(error.message);
@@ -137,18 +142,31 @@ const PropertyUpdate = () => {
                     </div>
                     <div className="mb-4">
                         <label className="text-gray-700">Description</label>
-                        <textarea id="description" name="description" rows="4" 
-                        value={propertyData.description || ''}
-                        onChange={(e)=>setPropertyData({ ...propertyData, description: e.target.value })}
-                        className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
+                        <textarea id="description" name="description" rows="4"
+                            value={propertyData.description || ''}
+                            onChange={(e) => setPropertyData({ ...propertyData, description: e.target.value })}
+                            className="mt-1 p-2 block w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
                     </div>
                     <div>
-                        <button
+                        {
+                            uploading ? <button
+
+                                className="w-full py-2 px-4 text-white bg-black hover:bg-slate-400 font-semibold rounded-md"
+                            >
+                                Image Uploading.........
+                            </button> : <button
+                                type="submit"
+                                className="w-full py-2 px-4 text-white bg-[#4169E1] hover:bg-slate-400 font-semibold rounded-md"
+                            >
+                                Update Property
+                            </button>
+                        }
+                        {/* <button
                             type="submit"
                             className="w-full py-2 px-4 text-white bg-[#4169E1] hover:bg-slate-400 font-semibold rounded-md"
                         >
                             Update Property
-                        </button>
+                        </button> */}
                     </div>
                 </form>
             </div>

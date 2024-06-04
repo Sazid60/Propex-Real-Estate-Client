@@ -1,9 +1,8 @@
 import { useQuery } from "@tanstack/react-query";
-import AllPropertyCard from "../../components/AllPropertyCard";
 import Banner from "../../components/Banner";
-import useAxiosSecure from "../../hooks/useAxiosSecure";
 import useAxiosPublic from "../../hooks/useAxiosPublic";
 import PropertyReviewCard from "../PropertyDetails/PropertyReviewCard";
+import AdPropertyCard from "./AdPropertyCard";
 
 
 const Home = () => {
@@ -35,7 +34,7 @@ const Home = () => {
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3 font-sedan" >Handpicked Properties Offering Comfort, Luxury, and Unmatched Value for Your Dream Home </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    allProperties.slice(0,9).map(property => <AllPropertyCard key={property._id} property={property}></AllPropertyCard>).reverse()
+                    allProperties.slice(0,9).map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse()
                 }
             </div>
 
