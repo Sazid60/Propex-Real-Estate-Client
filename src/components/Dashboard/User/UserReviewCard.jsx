@@ -1,7 +1,7 @@
 import { FaStar } from "react-icons/fa";
 
 
-const AdminReviewCard = ({ single_review, handleDeleteReview }) => {
+const UserReviewCard = ({single_review,handleDeleteReview}) => {
     const { _id, review, reviewerName, reviewerImage, reviewedPropertyId, reviewedPropertyName, reviewedTime, rating } = single_review
 
     const formatDate = (dateString) => {
@@ -37,4 +37,4 @@ const AdminReviewCard = ({ single_review, handleDeleteReview }) => {
     );
 };
 
-export default AdminReviewCard;
+export default UserReviewCard;

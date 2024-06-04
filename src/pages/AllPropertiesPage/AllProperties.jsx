@@ -32,6 +32,8 @@ const AllProperties = () => {
     return (
         <div>
             <h1 className="text-center font-bold xl:text-3xl">ALL PROPERTIES</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3 font-sedan" >Discover a Wide Range of Properties Tailored to Suit Every Lifestyle and Preference. From Cozy Apartments to Spacious Villas, We Have the Perfect Home for You.e </p>
+
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
                     allProperties.map(property => <AllPropertyCard key={property._id} property={property}></AllPropertyCard>)
