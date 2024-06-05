@@ -1,5 +1,5 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import PropertyReviewCard from "./PropertyReviewCard";
 import useAuth from "../../hooks/useAuth";
@@ -10,6 +10,7 @@ import { FaStar } from "react-icons/fa";
 
 const PropertyDetails = () => {
     const axiosSecure = useAxiosSecure()
+    const navigate = useNavigate()
     const { id } = useParams()
 
     const { user } = useAuth()
@@ -57,7 +58,6 @@ const PropertyDetails = () => {
         event.preventDefault()
         const review = event.target.review.value;
         const rating = event.target.rating.value
-
         console.log(propertyId, review)
 
         const reviewDetails = {
@@ -74,6 +74,40 @@ const PropertyDetails = () => {
         // console.log(reviewDetails)
 
         await mutateAsync(reviewDetails)
+    }
+
+    // handle add to wishlist
+    const handleAddToWishlist = async () => {
+        // console.log(propertyId)
+
+        const wishlist_property = {
+            propertyId,
+            propertyImage,
+            title,
+            location,
+            maxPrice,
+            minPrice,
+            verification_status,
+            agentImage,
+            agentName,
+            agentEmail,
+            description,
+            wisherEmail: user?.email,
+            wisherName: user?.displayName,
+            wisherImage: user?.photoURL,
+            offered_status: 'pending'
+        }
+        console.log(wishlist_property)
+
+        try {
+            const { data } = await axiosSecure.post('/wishlist-property', wishlist_property)
+            toast.success('Added To Wishlist')
+            navigate('/dashboard/wishlist')
+            console.log(data)
+        } catch (error) {
+            console.log(error)
+        }
+
     }
 
     if (propertyLoading || isLoading) {
@@ -146,7 +180,7 @@ const PropertyDetails = () => {
                                             <textarea id="review" name="review" rows="4" className="mt-1 p-2  w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write your review here..." required></textarea>
                                         </div>
                                         <div className="mt-4">
-                                            <label  className=" text-sm font-medium text-gray-700 text-center flex justify-center items-center gap-4">Rating <span className="flex"> <FaStar className="text-yellow-500"></FaStar> <FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar></span></label>
+                                            <label className=" text-sm font-medium text-gray-700 text-center flex justify-center items-center gap-4">Rating <span className="flex"> <FaStar className="text-yellow-500"></FaStar> <FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar><FaStar className="text-yellow-500"></FaStar></span></label>
                                             <input type="number" id="rating" name="rating" min="0" max="5" step="0.5" className="mt-1 p-2  w-full rounded-md border border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Rate from 0 to 5" required />
                                         </div>
                                         <div className="modal-action justify-between">
@@ -156,7 +190,9 @@ const PropertyDetails = () => {
                                     </form>
                                 </div>
                             </dialog>
-                            <button className="btn btn-sm bg-blue-700 mt-4 mb-6 text-white  whitespace-nowrap text-xs md:text-sm lg:text-lg shadow-lg">ADD TO WISHLIST</button>
+                            <button
+                                onClick={() => handleAddToWishlist()}
+                                className="btn btn-sm bg-blue-700 mt-4 mb-6 text-white  whitespace-nowrap text-xs md:text-sm lg:text-lg shadow-lg">ADD TO WISHLIST</button>
                         </div>
                         <div className="mt-6 text-center">
                             <h1 className="text-center font-bold xl:text-3xl">PROPERTY REVIEWS</h1>

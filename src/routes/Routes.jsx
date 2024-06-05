@@ -28,6 +28,7 @@ import PrivateRoute from "./PrivateRoute";
 import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
+import MakeOfferForm from "../pages/Dashboard/User/MakeOfferForm";
 
 
 
@@ -80,6 +81,10 @@ export const router = createBrowserRouter([
             {
                 path: 'user-reviews',
                 element: <UserReviews></UserReviews>
+            },
+            {
+                path: 'wishlist/offer/:id',
+                element: <MakeOfferForm></MakeOfferForm>
             },
 
             // Admin Routes
