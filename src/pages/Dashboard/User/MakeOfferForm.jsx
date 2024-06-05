@@ -4,6 +4,7 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import useAuth from "../../../hooks/useAuth";
 import { useState } from "react";
 import toast from "react-hot-toast";
+import { Hourglass } from "react-loader-spinner";
 
 
 const MakeOfferForm = () => {
@@ -47,6 +48,7 @@ const MakeOfferForm = () => {
             location: wish.location,
             agentName: wish.agentName,
             agentEmail: wish.agentEmail,
+            agentImage : wish.agentImage,
             description: wish.description,
             buyerName: user?.displayName,
             buyerEmail: user?.email,
@@ -68,6 +70,19 @@ const MakeOfferForm = () => {
     }
 
     // console.log(wish)
+    if (isLoading) {
+        return <div className="min-h-screen flex justify-center items-center">
+            <Hourglass
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="hourglass-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                colors={['#306cce', '#72a1ed']}
+            />
+        </div>
+    }
     return (
         <div className="flex items-center justify-center min-h-screen ">
             <div className="bg-white p-4 rounded shadow-md w-full max-w-6xl">
@@ -178,7 +193,7 @@ const MakeOfferForm = () => {
                         <input
                             type="number"
                             id="offerPrice"
-                            onChange={(e) => setOfferPrice(e.target.defaultValue)}
+                            onChange={(e) => setOfferPrice(e.target.value)}
                             className="mt-1 w-full px-3 py-2  border border-blue-700 rounded-md shadow-sm sm:text-sm"
                             required
                         />

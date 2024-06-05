@@ -34,7 +34,7 @@ const UserReviews = () => {
         <div>
             <h1 className="text-center font-bold xl:text-3xl mt-6 mb-4">YOUR ALL REVIEWS</h1>
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3 font-sedan" >Manage Your Added Reviews. You Can Delete Your Added Reviews </p>
-            {reviews.length < 1 && <div className="mt-4 text-center">No One Reviewed Yet</div>}
+            {reviews.length < 1 && <div className="mt-4 text-center">Not Reviewed Yet</div>}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6 mt-4 lg:px-10">
                 {
                     reviews.map(review => <UserReviewCard key={review._id} single_review={review} handleDeleteReview={handleDeleteReview}></UserReviewCard>)
