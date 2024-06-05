@@ -7,14 +7,14 @@ import useAxiosSecure from "../../../hooks/useAxiosSecure";
 
 
 const UserReviews = () => {
-    const axiosPublic = useAxiosPublic()
+    // const axiosPublic = useAxiosPublic()
     const axiosSecure = useAxiosSecure()
     const {user} = useAuth()
         // get all the reviews
         const { data: reviews = [], isLoading,refetch } = useQuery({
             queryKey: ['review'],
             queryFn: async () => {
-                const { data } = await axiosPublic.get(`/reviews?email=${user.email}`)
+                const { data } = await axiosSecure.get(`/userReview/${user?.email}`)
                 return data
             },
         })
