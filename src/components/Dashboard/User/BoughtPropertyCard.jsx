@@ -3,20 +3,20 @@
 const BoughtPropertyCard = ({ property }) => {
     const { _id, propertyId, wishId, title, propertyImage, location, agentName, agentImage, agentEmail, description, buyerName, buyerEmail, buyerImage, offeredMinPrice, offeredMaxPrice, offerPrice, status } = property
     return (
-        <div className="bg-base-100 shadow-md p-4 rounded-lg hover:shadow-2xl">
+        <div className="bg-base-100 shadow-md p-4 rounded-lg hover:shadow-2xl ">
             <figure className="w-full">
                 <img className="object-cover h-32 md:h-40 lg:h-40 w-full" src={propertyImage} alt="Property" />
-                <h1 className={`w-full px-2 text-center uppercase font-semibold  ${status === 'pending' ? 'bg-orange-300 text-black' : status === 'accepted' ? 'bg-green-500 text-white' : status === 'bought' ? 'bg-blue-500 text-white' : 'bg-red-500 text-white'}`}>
+                <h1 className={`w-full px-2 text-center uppercase font-semibold text-xs md:text-md lg:text-sm xl:text-lg  ${status === 'pending' ? 'bg-orange-300 text-black' : status === 'accepted' ? 'bg-green-500 text-white' : status === 'bought' ? 'bg-blue-500 text-white' : 'bg-red-500 text-white'}`}>
                     {status}
                 </h1>
             </figure>
             <div className="p-4">
                 <h2 className="font-bold text-sm md:text-lg lg:text-xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-md lg:text-lg text-center lg:h-28">
-                    {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
+                <p className="mb-4 text-xs md:text-md lg:text-lg text-center">
+                    {description.split(' ').slice(0, 16).join(' ') + (description.split(' ').length > 16 ? '...' : '')}
                 </p>
                 <div className="text-center mb-4">
-                    <p className="font-bold text-xs md:text-md lg:text-lg mb-2">Location: <span className="font-normal">{location}</span></p>
+                    <p className="font-bold text-xs md:text-md lg:text-sm xl:text-lg mb-2">Location: <span className="font-normal">{location}</span></p>
                     <p className="font-bold text-xs md:text-md lg:text-lg mb-2">Offered Amount: <span className="text-blue-500">$ {offerPrice}</span></p>
                 </div>
                 <div className="mb-4">
@@ -37,7 +37,7 @@ const BoughtPropertyCard = ({ property }) => {
                 {status === 'accepted' && (
                     <button
                         // onClick={() => handlePayment(_id)}
-                        className="btn px-6 bg-green-500 text-white w-full font-semibold mb-2 uppercase">Pay</button>
+                        className="btn btn-sm px-6 bg-green-500 text-white w-full font-semibold mb-2 uppercase">Pay</button>
                 )}
                 {status === 'bought' && (
                     <div className="text-center font-semibold text-blue-500 whitespace-nowrap">

@@ -29,6 +29,7 @@ import AdminRoute from "./AdminRoute";
 import AgentRoute from "./AgentRoute";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 import MakeOfferForm from "../pages/Dashboard/User/MakeOfferForm";
+import RequestedProperty from "../pages/Dashboard/Agent/RequestedProperty";
 
 
 
@@ -125,6 +126,10 @@ export const router = createBrowserRouter([
             {
                 path: 'sold-properties',
                 element: <AgentRoute><MySoldProperty /></AgentRoute>,
+            },
+            {
+                path: 'requested-properties',
+                element: <AgentRoute><RequestedProperty></RequestedProperty></AgentRoute>,
             },
             {
                 path: 'my-added-property/property-update/:id',

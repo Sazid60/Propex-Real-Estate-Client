@@ -15,7 +15,7 @@ const UserProperty = () => {
             return data
         },
     })
-    console.log(offeredProperties )
+    console.log(offeredProperties)
     return (
         <div>
             <h1 className="text-center font-bold xl:text-3xl">MY BOUGHT PROPERTIES</h1>
