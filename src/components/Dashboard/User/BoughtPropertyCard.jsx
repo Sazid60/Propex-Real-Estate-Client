@@ -12,7 +12,7 @@ const BoughtPropertyCard = ({ property }) => {
             </figure>
             <div className="p-4">
                 <h2 className="font-bold text-sm md:text-lg lg:text-xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-md lg:text-lg text-center h-24">
+                <p className="mb-4 text-xs md:text-md lg:text-lg text-center lg:h-28">
                     {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
                 </p>
                 <div className="text-center mb-4">

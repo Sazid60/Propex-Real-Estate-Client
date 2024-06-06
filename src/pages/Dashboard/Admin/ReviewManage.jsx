@@ -45,7 +45,7 @@ const ReviewManage = () => {
         <div>
             <h1 className="text-center font-bold xl:text-3xl mt-6 mb-4">ALL PROPERTY REVIEWS</h1>
             {reviews.length < 1 && <div className="mt-4 text-center">No One Reviewed Yet</div>}
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6 mt-4 lg:px-10">
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:px-10">
                 {
                     reviews.map(review => <AdminReviewCard key={review._id} single_review={review} handleDeleteReview={handleDeleteReview}></AdminReviewCard>)
                 }

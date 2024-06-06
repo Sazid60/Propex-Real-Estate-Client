@@ -14,7 +14,7 @@ const WishPropertyCard = ({ wished_property, handleDelete }) => {
             </figure>
             <div className="p-2">
                 <h2 className="font-bold text-sm md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-lg lg:text-lg text-center lg:h-20" >
+                <p className="mb-4 text-xs md:text-lg lg:text-lg text-center lg:h-28" >
                     {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
                 </p>
                 <div className="">
