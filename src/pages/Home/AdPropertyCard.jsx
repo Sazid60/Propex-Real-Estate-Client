@@ -6,7 +6,7 @@ const AdPropertyCard = ({property}) => {
     return (
         <>
             {
-                verification_status === "verified" && advertised === "yes" && <div className="bg-base-100 shadow-md p-2 rounded-none hover:shadow-2xl">
+                verification_status === "verified" && advertised === "yes" && status !=="bought" && <div className="bg-base-100 shadow-md p-2 rounded-none hover:shadow-2xl">
                     <figure className="w-full">
                         <img className="object-cover h-32 md:h-40 lg:h-40 w-full" src={propertyImage} alt="" />
                         <h1 className={`w-full px-2 text-center uppercase text-white ${verification_status === 'pending' ? 'bg-slate-700' : verification_status === 'verified' ? 'bg-black' : 'bg-red-500'}`}>

@@ -1,7 +1,8 @@
+import { Link } from "react-router-dom";
 
 
-const BoughtPropertyCard = ({ property }) => {
-    const { _id, propertyId, wishId, title, propertyImage, location, agentName, agentImage, agentEmail, description, buyerName, buyerEmail, buyerImage, offeredMinPrice, offeredMaxPrice, offerPrice, status } = property
+const BoughtPropertyCard = ({ property, handlePayment }) => {
+    const { _id, propertyId, wishId, title, propertyImage, location, agentName, agentImage, agentEmail, description, buyerName, buyerEmail, buyerImage, offeredMinPrice, offeredMaxPrice, offerPrice, status,transactionId } = property
     return (
         <div className="bg-base-100 shadow-md p-4 rounded-lg hover:shadow-2xl ">
             <figure className="w-full">
@@ -16,11 +17,11 @@ const BoughtPropertyCard = ({ property }) => {
                     {description.split(' ').slice(0, 16).join(' ') + (description.split(' ').length > 16 ? '...' : '')}
                 </p>
                 <div className="text-center mb-4">
-                    <p className="font-bold text-xs md:text-md lg:text-sm xl:text-lg mb-2">Location: <span className="font-normal">{location}</span></p>
-                    <p className="font-bold text-xs md:text-md lg:text-lg mb-2">Offered Amount: <span className="text-blue-500">$ {offerPrice}</span></p>
+                    <p className="font-bold text-xs  lg:text-sm xl:text-sm mb-2">Location: <span className="font-normal">{location}</span></p><hr />
+                    <p className="font-bold text-xs md:text-md lg:text-lg mb-2">My Offer: <span className="text-blue-500">$ {offerPrice}</span></p>
                 </div>
                 <div className="mb-4">
-                    <h1 className="text-center text-xs md:text-md lg:text-lg font-semibold mb-2 text-blue-800">ADDED BY</h1>
+                    <h1 className="text-center text-xs md:text-sm lg:text-sm font-semibold mb-2 text-blue-800">ADDED BY</h1>
                     <hr className="mb-2 border-t-1 border-gray-300" />
                     <div className="">
                         <div className="flex flex-col justify-center items-center mb-2 xl:mb-0">
@@ -35,17 +36,21 @@ const BoughtPropertyCard = ({ property }) => {
                     </div>
                 </div> <hr className="mb-3" />
                 {status === 'accepted' && (
-                    <button
-                        // onClick={() => handlePayment(_id)}
-                        className="btn btn-sm px-6 bg-green-500 text-white w-full font-semibold mb-2 uppercase">Pay</button>
+                    <Link to={`paymentPage/${_id}`}>
+                        <button
+                            className="btn btn-sm px-6 bg-green-500 text-white w-full font-semibold mt-2 uppercase">
+                            Pay
+                        </button>
+                    </Link>
                 )}
-                {status === 'bought' && (
-                    <div className="text-center font-semibold text-blue-500 whitespace-nowrap">
-                        Transaction ID: transactionId
+                {status === 'bought' && transactionId && (
+                    <div className="text-center font-semibold text-black whitespace-nowrap">
+                        Transaction ID: <br />
+                         <span className="text-blue-500 text-xs">{transactionId}</span>
                     </div>
                 )}
                 {status === 'pending' && (
-                    <div className="text-center font-semibold text-blue-500">
+                    <div className="text-center font-semibold text-orange-300 text-sm">
                         Wait For Acceptance....
                     </div>
                 )}

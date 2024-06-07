@@ -30,6 +30,8 @@ import AgentRoute from "./AgentRoute";
 import AdvertiseProperty from "../pages/Dashboard/Admin/AdvertiseProperty";
 import MakeOfferForm from "../pages/Dashboard/User/MakeOfferForm";
 import RequestedProperty from "../pages/Dashboard/Agent/RequestedProperty";
+import PaymentPage from "../pages/Dashboard/User/PaymentPage";
+import UserRoute from "./UserRoute";
 
 
 
@@ -64,28 +66,32 @@ export const router = createBrowserRouter([
         children: [
             {
                 index:true,
-                element: <Common></Common>,
+                element: <PrivateRoute><Common></Common></PrivateRoute>,
             },
             // User Routes
             {
                 path: 'user-profile',
-                element: <UserProfile></UserProfile>,
+                element: <UserRoute><UserProfile></UserProfile></UserRoute>,
             },
             {
                 path: 'wishlist',
-                element: <UserWishlist></UserWishlist>,
+                element: <UserRoute><UserWishlist></UserWishlist></UserRoute>,
             },
             {
                 path: 'property-bought',
-                element: <UserProperty></UserProperty>,
+                element: <UserRoute><UserProperty></UserProperty></UserRoute>,
             },
             {
                 path: 'user-reviews',
-                element: <UserReviews></UserReviews>
+                element: <UserRoute><UserReviews></UserReviews></UserRoute>
             },
             {
                 path: 'wishlist/offer/:id',
-                element: <MakeOfferForm></MakeOfferForm>
+                element: <UserRoute><MakeOfferForm></MakeOfferForm></UserRoute>
+            },
+            {
+                path: 'property-bought/paymentPage/:id',
+                element: <UserRoute><PaymentPage></PaymentPage></UserRoute>
             },
 
             // Admin Routes

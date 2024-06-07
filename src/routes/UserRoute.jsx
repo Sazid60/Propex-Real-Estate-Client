@@ -3,8 +3,7 @@ import { Navigate } from "react-router-dom";
 import useRole from "../hooks/useRole";
 
 
-const AdminRoute = ({ children }) => {
-
+const UserRoute = ({children}) => {
     const [role, isLoading] = useRole()
 
     if (isLoading) return <div className="min-h-screen flex justify-center items-center">
@@ -18,8 +17,8 @@ const AdminRoute = ({ children }) => {
         colors={['#306cce', '#72a1ed']}
     />
 </div>
-    if (role === 'admin') return children
-    return <Navigate to='/' />
+    if (role === 'user') return children
+    return <Navigate to='/dashboard' />
 };
 
-export default AdminRoute;
+export default UserRoute;

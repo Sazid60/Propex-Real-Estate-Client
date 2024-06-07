@@ -15,6 +15,7 @@ const Login = () => {
 
     const { logInUser, googleLogin, user } = useContext(AuthContext)
     const location = useLocation()
+    console.log(location)
 
     const navigate = useNavigate()
 
@@ -22,26 +23,26 @@ const Login = () => {
         setShowPassword(!showPassword)
     }
 
-    const handleSignIn = (e) => {
+    const handleSignIn = async (e) => {
         e.preventDefault()
         const form = e.target;
         const email = form.email.value;
         const password = form.password.value;
-
+    
         setSuccess("")
         setErrorMessage("")
-
-        logInUser(email, password)
-            .then(() => {
-                toast.success('Login Successful');
-                setSuccess("Successfully Logged In")
-                navigate(location?.state ? location.state : "/")
-            })
-            .catch(error => {
-                setErrorMessage(error.message)
-                toast.error(error.message)
-            })
+    
+        try {
+            await logInUser(email, password);
+            toast.success('Login Successful');
+            setSuccess("Successfully Logged In")
+            navigate(location?.state ? location.state : "/")
+        } catch (error) {
+            setErrorMessage(error.message)
+            toast.error(error.message)
+        }
     }
+    
 
     // Social 
     const handleSocialLogin = async (socialLoginProvider) => {

@@ -10,8 +10,8 @@ import UserMenu from "./User/UserMenu";
 
 
 const Sidebar = () => {
-    const [role] = useRole()
-    console.log(role)
+    const [role,isLoading] = useRole()
+    // console.log(role)
     const [isActive, setActive] = useState(false)
 
     const handleToggle = () => {

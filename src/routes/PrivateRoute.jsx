@@ -2,12 +2,13 @@ import { Hourglass } from "react-loader-spinner";
 import { Navigate, useLocation } from "react-router-dom";
 import useAuth from "../hooks/useAuth";
 
-const PrivateRoute = ({children}) => {
+const PrivateRoute = ({ children }) => {
 
-        const { user, loading } = useAuth()
-        const location = useLocation()
-      
-        if (loading) return <div className="min-h-screen flex justify-center items-center">
+    const { user, loading } = useAuth()
+    const location = useLocation()
+    // console.log({ user, loading })
+
+    if (loading) return <div className="min-h-screen flex justify-center items-center">
         <Hourglass
             visible={true}
             height="80"
@@ -18,8 +19,8 @@ const PrivateRoute = ({children}) => {
             colors={['#306cce', '#72a1ed']}
         />
     </div>
-        if (user) return children
-        return <Navigate to='/login' state={location.pathname} replace='true' />
+    if (user?.email) return children
+    return <Navigate to='/login' state={location?.pathname} replace='true' />
 
 };
 

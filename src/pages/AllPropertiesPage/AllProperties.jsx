@@ -2,19 +2,33 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../hooks/useAxiosSecure";
 import { Hourglass } from "react-loader-spinner";
 import AllPropertyCard from "../../components/AllPropertyCard";
+import useAuth from "../../hooks/useAuth";
+import { useEffect } from "react";
 
 
 const AllProperties = () => {
     const axiosSecure = useAxiosSecure()
 
-    const { data: allProperties = [], isLoading } = useQuery({
+    const {user,loading} = useAuth()
+
+    const { data: allProperties = [], isLoading, refetch, isFetching} = useQuery({
         queryKey: ['allProperties'],
+        enabled : !!localStorage.getItem('access-token') && !loading,
+        gcTime : 0, 
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/properties`)
             return data
         },
+        
     })
-    console.log(allProperties)
+    // console.log(allProperties)
+    // console.log(isFetching)
+
+    // useEffect(()=>{
+    //     if(localStorage.getItem('access-token')){
+    //         refetch()
+    //     }
+    // },[refetch])
 
     if (isLoading) {
         return <div className="min-h-screen flex justify-center items-center">

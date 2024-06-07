@@ -1,7 +1,7 @@
-import {createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile,GithubAuthProvider, GoogleAuthProvider  } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 import { createContext, useEffect, useState } from "react";
-import  app  from "../firebase/firebase.config";
+import app from "../firebase/firebase.config";
 import axios from "axios";
 
 
@@ -12,7 +12,7 @@ const gitHubProvider = new GithubAuthProvider();
 const auth = getAuth(app)
 // eslint-disable-next-line react/prop-types
 const AuthProvider = ({ children }) => {
-    
+
 
 
     const [user, setUser] = useState(null)
@@ -74,21 +74,21 @@ const AuthProvider = ({ children }) => {
         const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
             console.log("Observing : ", currentUser)
             setUser(currentUser)
-
-            if (currentUser) {
-                axios.post('http://localhost:5000/jwt', {email: currentUser.email})
-                .then(data =>{
-                    console.log(data.data.token)
-                    localStorage.setItem('access-token', data.data.token)
-                    // saveUserData(currentUser)
-                    setLoading(false);
-                })
+            setLoading(true)
+            if (currentUser?.email) {
+                axios.post('http://localhost:5000/jwt', { email: currentUser.email })
+                    .then(data => {
+                        // console.log(data.data.token)
+                        localStorage.setItem('access-token', data.data.token)
+                        // saveUserData(currentUser)
+                        setLoading(false);
+                    })
             }
-            else{
+            else {
                 localStorage.removeItem('access-token')
                 setLoading(false);
             }
-            setLoading(false)
+            // setLoading(false)
         })
         return () => {
             unsubscribe();

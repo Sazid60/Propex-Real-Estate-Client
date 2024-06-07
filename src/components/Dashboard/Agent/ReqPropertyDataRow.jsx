@@ -34,6 +34,7 @@ const ReqPropertyDataRow = ({ offer, handleReject,handleAccept }) => {
                 </button>}
 
                 {offer?.status === "accepted" && <span className='text-green-600'>Accepted</span>}
+                {offer?.status === "bought" && <span className='text-blue-700 font-bold'>SOLD</span>}
 
 
             </td>
@@ -43,7 +44,7 @@ const ReqPropertyDataRow = ({ offer, handleReject,handleAccept }) => {
 
                 {offer?.status === "pending" && <button
                     className='bg-red-500 text-white px-3 py-1 rounded'
-                    onClick={() => handleReject(offer._id)}
+                    onClick={() => handleReject(offer?._id)}
                 >
                     Reject
                 </button>}
