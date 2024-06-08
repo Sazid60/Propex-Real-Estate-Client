@@ -7,12 +7,14 @@ import { useEffect, useState } from 'react';
 import useAxiosSecure from '../../../hooks/useAxiosSecure';
 import toast from 'react-hot-toast';
 import useAuth from '../../../hooks/useAuth';
+import { useNavigate } from 'react-router-dom';
 
 const CheckoutForm = ({ bookingInfo }) => {
     // console.log(bookingInfo)
     const { _id, propertyId, wishId, title, propertyImage, location, agentName, agentImage, agentEmail, description, buyerName, buyerEmail, buyerImage, offeredMinPrice, offeredMaxPrice, offerPrice, status } = bookingInfo
 
     const { user } = useAuth()
+    const navigate = useNavigate()
 
     const [cardError, setCardError] = useState('')
     const [clientSecret, setClientSecret] = useState()
@@ -128,6 +130,8 @@ const CheckoutForm = ({ bookingInfo }) => {
                 await axiosSecure.patch(`/update-selling-status/${propertyId}`, { selling_status: "sold" })
 
                 //navigate korbo to property bought page
+                navigate('/dashboard/property-bought')
+
             } catch (error) {
                 console.log(error)
             }

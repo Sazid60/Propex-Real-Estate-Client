@@ -6,6 +6,16 @@ import useAuth from "../../hooks/useAuth";
 import toast from "react-hot-toast";
 import { Hourglass } from "react-loader-spinner";
 import { FaStar } from "react-icons/fa";
+// import PropertySpecificReview from "../../components/PropertySpecificReview";
+// Import Swiper React components
+import { Swiper, SwiperSlide } from 'swiper/react';
+
+// Import Swiper styles
+import 'swiper/css';
+import 'swiper/css/navigation';
+// import required modules
+import { Navigation } from 'swiper/modules';
+
 
 
 const PropertyDetails = () => {
@@ -36,7 +46,7 @@ const PropertyDetails = () => {
         },
     })
 
-    // console.log(reviews)
+    console.log(reviews)
 
     // add a review
     const { mutateAsync } = useMutation({
@@ -110,7 +120,7 @@ const PropertyDetails = () => {
 
     }
 
-    if (propertyLoading || isLoading) {
+    if (propertyLoading) {
         return <div className="min-h-screen flex justify-center items-center">
             <Hourglass
                 visible={true}
@@ -126,9 +136,11 @@ const PropertyDetails = () => {
 
     return (
         <>
-            <h1 className="text-center font-bold xl:text-3xl mb-6">PROPERTY DETAILS</h1>
+            <h1 className="text-center font-bold xl:text-3xl ">PROPERTY DETAILS</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-6 font-sedan" >Discover the allure of our spaces through intricate property details.</p>
+
             <div className="flex flex-col">
-                <div className='relative h-[150px] md:h-[300px] lg:h-[300px] w-full'>
+                <div className='relative h-[150px] md:h-[300px] lg:h-[400px] w-full'>
                     <div className='absolute inset-0 bg-cover bg-center bg-no-repeat flex justify-center items-center'>
                         <img src={propertyImage} alt="Banner Image" className="w-full h-full object-cover" />
                     </div>
@@ -196,12 +208,26 @@ const PropertyDetails = () => {
                         </div>
                         <div className="mt-6 text-center">
                             <h1 className="text-center font-bold xl:text-3xl">PROPERTY REVIEWS</h1>
+                            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-6 font-sedan" >Delve into the insights and impressions shared by our valued visitors in our property reviews.</p>
 
-                            {reviews.length < 1 && <div className="mt-4">No One Reviewed Yet</div>}
+                            {/* {reviews.length < 1 && <div className="mt-4">No One Reviewed Yet</div>}
                             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 mb-6 mt-4 ">
                                 {
                                     reviews.map(review => <PropertyReviewCard key={review._id} single_review={review}></PropertyReviewCard>)
                                 }
+                            </div> */}
+                            <div>
+                                <>
+                                    <Swiper navigation={true} modules={[Navigation]} className="mySwiper">
+                                        {reviews.length < 1 && <div className="mt-4">No One Reviewed Yet</div>}
+
+                                        {
+                                            reviews.map(review => <SwiperSlide key={review._id}><PropertyReviewCard single_review={review}></PropertyReviewCard></SwiperSlide>).reverse()
+                                        }
+
+                                    </Swiper>
+                                </>
+
                             </div>
                         </div>
                     </div>
