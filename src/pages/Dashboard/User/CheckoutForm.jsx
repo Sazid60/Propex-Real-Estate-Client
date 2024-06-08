@@ -117,16 +117,16 @@ const CheckoutForm = ({ bookingInfo }) => {
             }
 
             try {
-                //  1. Database e save korbo
-                const {data} = await axiosSecure.post('/soldProperties',paymentInfo)
-                // 2. offerings e _id diye khuje status update korbo
+                const { data } = await axiosSecure.post('/soldProperties', paymentInfo)
 
                 await axiosSecure.patch('/after-payment-status', {
                     status: "bought",
-                    id:_id,
+                    id: _id,
                     transactionId: paymentIntent.id,
                 })
-                // 3. properties er status change korbo
+
+                await axiosSecure.patch(`/update-selling-status/${propertyId}`, { selling_status: "sold" })
+
                 //navigate korbo to property bought page
             } catch (error) {
                 console.log(error)
