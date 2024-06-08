@@ -23,7 +23,7 @@ const Sidebar = () => {
             {/* Small Screen Navbar */}
             <div className='bg-gray-100 text-gray-800 flex justify-between md:hidden'>
                 <div>
-                    <div className='block cursor-pointer p-4 font-bold'>
+                    <div className='block cursor-pointer p-2 font-bold'>
                         <Link to='/'>
                             <img src='../../../public/LOGO.png' width='80' height='80' />
                         </Link>
@@ -45,9 +45,10 @@ const Sidebar = () => {
                         <div className='w-full hidden md:flex px-4 py-2  rounded-lg justify-center items-center  mx-auto'>
                             <Link to='/'>
                                 <img src='../../../public/LOGO.png' width='80' height='80' />
+                                <h1 className="text-center font-bold text-2xl hidden  md:flex justify-center">PROPEX</h1>
                             </Link>
                         </div>
-                        <h1 className="text-center font-bold text-2xl hidden  md:flex justify-center">PROPEX</h1>
+                        
                     </div>
 
                     {/* Nav Links */}

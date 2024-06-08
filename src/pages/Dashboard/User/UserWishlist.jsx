@@ -59,9 +59,10 @@ const UserWishlist = () => {
     return (
         <div>
             <h1 className="text-center font-bold xl:text-3xl">MY WISHED PROPERTIES</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >An anthology of dream homes embodying the perfect fusion of luxury, comfort, and innovation. </p>
             {wishes.length < 1 ? <p className="text-center mt-6">No Property is Added In Wishlist</p> : <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    wishes.map(wish => <WishPropertyCard key={wish._id} wished_property={wish} handleDelete={handleDelete} ></WishPropertyCard>)
+                    wishes.map(wish => <WishPropertyCard key={wish._id} wished_property={wish} handleDelete={handleDelete} ></WishPropertyCard>).reverse()
                 }
             </div>
 

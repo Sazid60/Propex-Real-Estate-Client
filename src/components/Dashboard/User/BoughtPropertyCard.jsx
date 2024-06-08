@@ -12,8 +12,8 @@ const BoughtPropertyCard = ({ property, handlePayment }) => {
                 </h1>
             </figure>
             <div className="p-4">
-                <h2 className="font-bold text-sm md:text-lg lg:text-xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-md lg:text-lg text-center">
+                <h2 className="font-bold text-sm md:text-sm xl:text-xl mb-2 uppercase text-center">{title}</h2>
+                <p className="mb-4 text-xs md:text-sm lg:text-sm text-center">
                     {description.split(' ').slice(0, 16).join(' ') + (description.split(' ').length > 16 ? '...' : '')}
                 </p>
                 <div className="text-center mb-4">

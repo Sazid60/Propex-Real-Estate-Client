@@ -37,7 +37,7 @@ const AllPropertyCard = ({ property }) => {
                                 </div>
                                 <div className="flex flex-col w-full xl:w-auto">
                                     {
-                                        selling_status === "sold" ? <p className="text-yellow-500 font-bold">PROPERTY SOLD</p>:                                     <Link to={`/property-details/${_id}`}>
+                                        selling_status === "sold" ? <p className="text-yellow-500 font-bold text-center">PROPERTY SOLD</p>:                                     <Link to={`/property-details/${_id}`}>
                                         <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">View Details</button>
                                     </Link>
                                     }

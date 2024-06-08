@@ -17,7 +17,7 @@ const PropertyCard = ({ property, handleDelete }) => {
             </figure>
             <div className="p-2">
                 <h2 className="font-bold text-sm md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-lg lg:text-lg text-center lg:h-20" >
+                <p className="mb-4 text-xs md:text-sm lg:text-sm text-center xl:h-20" >
                     {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
                 </p>
                 <div className="">
@@ -38,7 +38,7 @@ const PropertyCard = ({ property, handleDelete }) => {
                             </div>
                         </div>
                         {
-                            selling_status === "sold" ? <p className="text-yellow-500 font-bold">PROPERTY SOLD</p> : <div className="flex flex-col w-full xl:w-auto">
+                            selling_status === "sold" ? <p className="text-yellow-500 font-bold text-sm">SOLD</p> : <div className="flex flex-col w-full xl:w-auto">
                                 {verification_status !== 'rejected' && (
                                     <Link to={`property-update/${_id}`}>
                                         <button

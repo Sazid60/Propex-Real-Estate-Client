@@ -4,6 +4,7 @@ import useAuth from "../../../hooks/useAuth";
 import UserReviewCard from "../../../components/Dashboard/User/UserReviewCard";
 import toast from "react-hot-toast";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
+import { Hourglass } from "react-loader-spinner";
 
 
 const UserReviews = () => {
@@ -30,6 +31,19 @@ const UserReviews = () => {
                 console.log(error)
             }
         }
+        if (isLoading) {
+            return <div className="min-h-screen flex justify-center items-center">
+                <Hourglass
+                    visible={true}
+                    height="80"
+                    width="80"
+                    ariaLabel="hourglass-loading"
+                    wrapperStyle={{}}
+                    wrapperClass=""
+                    colors={['#306cce', '#72a1ed']}
+                />
+            </div>
+        }
     return (
         <div>
             <h1 className="text-center font-bold xl:text-3xl mt-6 mb-4">YOUR ALL REVIEWS</h1>
@@ -37,7 +51,7 @@ const UserReviews = () => {
             {reviews.length < 1 && <div className="mt-4 text-center">Not Reviewed Yet</div>}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 ">
                 {
-                    reviews.map(review => <UserReviewCard key={review._id} single_review={review} handleDeleteReview={handleDeleteReview}></UserReviewCard>)
+                    reviews.map(review => <UserReviewCard key={review._id} single_review={review} handleDeleteReview={handleDeleteReview}></UserReviewCard>).reverse()
                 }
             </div>
         </div>

@@ -37,31 +37,36 @@ const PaymentPage = () => {
     </div>
 
     return (
-        <div className="flex justify-center items-center min-h-screen">
+        <div className="min-h-screen">
+            <h1 className="text-center font-bold xl:text-3xl">PAYMENT PAGE</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" > Experience peace of mind with our seamless transaction process, ensuring your payments are handled securely and efficiently</p>
+            <div className="flex justify-center items-center ">
 
-            <div className="bg-base-100 shadow-md p-4 rounded-lg hover:shadow-2xl max-w-2xl">
-                <figure className="w-full">
-                    <img className="object-cover shadow-xl border rounded-xl  w-full" src={propertyImage} alt="Property" />
-                </figure>
-                <div className="p-4">
-                    <h2 className="font-bold text-sm md:text-lg lg:text-2xl mb-2 uppercase text-center text-blue-700">{title}</h2>
-                    <p className="mb-4 text-xs md:text-sm lg:text-sm text-center">
-                        {/* {description.split(' ').slice(0, 16).join(' ') + (description.split(' ').length > 16 ? '...' : '')} */}
-                        {description}
-                    </p>
-                    <div className="text-center mb-4">
-                        <p className="font-bold text-xs md:text-md lg:text-sm xl:text-sm mb-2">LOCATION: <span className="font-normal">{location}</span></p>
-                        <p className="font-bold text-xs md:text-md lg:text-sm mb-2">PAYMENT: <span className="text-blue-500">$ {offerPrice}</span></p>
-                    </div><hr />
+                <div className="bg-base-100 shadow-md p-4 rounded-lg hover:shadow-2xl max-w-2xl">
+                    <figure className="w-full">
+                        <img className="object-cover shadow-xl border rounded-xl  w-full" src={propertyImage} alt="Property" />
+                    </figure>
+                    <div className="p-4">
+                        <h2 className="font-bold text-sm md:text-lg lg:text-2xl mb-2 uppercase text-center text-blue-700">{title}</h2>
+                        <p className="mb-4 text-xs md:text-sm lg:text-sm text-center">
+                            {/* {description.split(' ').slice(0, 16).join(' ') + (description.split(' ').length > 16 ? '...' : '')} */}
+                            {description}
+                        </p>
+                        <div className="text-center mb-4">
+                            <p className="font-bold text-xs md:text-md lg:text-sm xl:text-sm mb-2">LOCATION: <span className="font-normal">{location}</span></p>
+                            <p className="font-bold text-xs md:text-md lg:text-sm mb-2">PAYMENT: <span className="text-blue-500">$ {offerPrice}</span></p>
+                        </div><hr />
 
-                    <Elements stripe={stripePromise}>
-                        <CheckoutForm bookingInfo={buyingProperty} />
-                    </Elements>
+                        <Elements stripe={stripePromise}>
+                            <CheckoutForm bookingInfo={buyingProperty} />
+                        </Elements>
+                    </div>
                 </div>
+
+
             </div>
-
-
         </div>
+
     );
 };
 

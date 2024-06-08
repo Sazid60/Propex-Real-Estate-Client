@@ -15,11 +15,13 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 // import required modules
 import { Navigation } from 'swiper/modules';
+import useRole from "../../hooks/useRole";
 
 
 
 const PropertyDetails = () => {
     const axiosSecure = useAxiosSecure()
+    const [role] = useRole()
     const navigate = useNavigate()
     const { id } = useParams()
 
@@ -46,7 +48,7 @@ const PropertyDetails = () => {
         },
     })
 
-    console.log(reviews)
+    // console.log(reviews)
 
     // add a review
     const { mutateAsync } = useMutation({
@@ -178,9 +180,9 @@ const PropertyDetails = () => {
 
                             </tbody>
                         </table>
-                        <div className="flex justify-end gap-3">
+                        <div className="flex justify-center md:justify-end gap-3">
                             {/* Open the modal using document.getElementById('ID').showModal() method */}
-                            <button className="btn btn-sm bg-[#FFECB3] mt-4 mb-6 text-black text-xs md:text-sm lg:text-lg shadow-lg" onClick={() => document.getElementById('review_modal').showModal()}>ADD A REVIEW</button>
+                            <button disabled={role === "admin" || role === "agent"} className="btn btn-sm bg-[#FFECB3] mt-4 mb-6 text-black text-xs md:text-sm lg:text-lg shadow-lg" onClick={() => document.getElementById('review_modal').showModal()}>ADD A REVIEW</button>
                             <dialog id="review_modal" className="modal modal-middle sm:modal-middle">
                                 <div className="modal-box">
                                     <h3 className="font-bold text-lg text-center mb-4">WE LOVE TO TAKE REVIEWS FROM YOU!</h3>
@@ -203,6 +205,7 @@ const PropertyDetails = () => {
                                 </div>
                             </dialog>
                             <button
+                                disabled={role === "admin" || role === "agent"}
                                 onClick={() => handleAddToWishlist()}
                                 className="btn btn-sm bg-blue-700 mt-4 mb-6 text-white  whitespace-nowrap text-xs md:text-sm lg:text-lg shadow-lg">ADD TO WISHLIST</button>
                         </div>

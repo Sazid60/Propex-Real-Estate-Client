@@ -3,6 +3,7 @@ import useAuth from "../../../hooks/useAuth";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import { FaDollarSign } from "react-icons/fa";
 import { TbHomeHand } from "react-icons/tb";
+import { Hourglass } from "react-loader-spinner";
 
 
 const MySoldProperty = () => {
@@ -27,6 +28,20 @@ const MySoldProperty = () => {
     })
 
     const {soldProperties : totalSoldProperties,totalPrice,totalProperties} = agentStat
+
+    if (isLoading ) {
+        return <div className="min-h-screen flex justify-center items-center">
+            <Hourglass
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="hourglass-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                colors={['#306cce', '#72a1ed']}
+            />
+        </div>
+    }
     return (
         <div className='py-8'>
             <div className="flex justify-center items-center w-full">
@@ -64,8 +79,8 @@ const MySoldProperty = () => {
 
                 </div>
             </div>
-
-            <h1 className="text-center font-bold text-2xl sm:text-3xl mb-6">MY SOLD PROPERTIES</h1>
+            <h1 className="text-center font-bold xl:text-3xl">MY SOLD PROPERTIES</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >View a comprehensive list of properties you've successfully sold </p>
             <div className='overflow-x-auto -mx-4 sm:-mx-8 px-4 sm:px-8 py-4'>
                 <div className='inline-block min-w-full overflow-hidden'>
                     <table className='min-w-full table-auto'>
@@ -73,31 +88,31 @@ const MySoldProperty = () => {
                             <tr>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     PROPERTY TITLE
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     PROPERTY LOCATION
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     BUYER EMAIL
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     BUYER NAME
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     SOLD PRICE
                                 </th>

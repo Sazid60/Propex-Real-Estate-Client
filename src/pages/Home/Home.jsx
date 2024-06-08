@@ -6,6 +6,7 @@ import AdPropertyCard from "./AdPropertyCard";
 import OurTeams from "./OurTeams";
 import ReviewBanner from "../../components/ReviewBanner";
 import OurFeatures from "../../components/OurFeatures";
+import { Hourglass } from "react-loader-spinner";
 
 
 const Home = () => {
@@ -28,16 +29,28 @@ const Home = () => {
     //     },
     // })
 
-    console.log(allProperties)
+    // console.log(allProperties)
+    if (isLoading) return <div className="min-h-screen flex justify-center items-center">
+        <Hourglass
+            visible={true}
+            height="80"
+            width="80"
+            ariaLabel="hourglass-loading"
+            wrapperStyle={{}}
+            wrapperClass=""
+            colors={['#306cce', '#72a1ed']}
+        />
+    </div>
+
     return (
         <div>
             <Banner></Banner>
 
             <h1 className="text-center font-bold xl:text-3xl mt-4">ADVERTISED PROPERTIES</h1>
-            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3 font-sedan" >Handpicked Properties Offering Comfort, Luxury, and Unmatched Value for Your Dream Home </p>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Handpicked Properties Offering Comfort, Luxury, and Unmatched Value for Your Dream Home </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    allProperties.slice(0, 9).map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse()
+                    allProperties.slice(0, 12).map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse()
                 }
             </div>
 
@@ -52,12 +65,13 @@ const Home = () => {
                     }
                 </div> */}
                 <ReviewBanner></ReviewBanner>
-                <OurTeams></OurTeams>
+
 
                 <h1 className="text-center font-bold xl:text-3xl mt-4">WHAT DO WE OFFER</h1>
                 <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2" >We offer a comprehensive range of real estate services tailored to your needs</p>
                 <OurFeatures></OurFeatures>
-                
+                <OurTeams></OurTeams>
+
             </div>
         </div>
     );

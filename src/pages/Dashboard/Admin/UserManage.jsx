@@ -2,12 +2,13 @@ import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "../../../hooks/useAxiosSecure";
 import UserDataRow from "../../../components/Dashboard/Admin/UserDataRow";
 import toast from "react-hot-toast";
+import { Hourglass } from "react-loader-spinner";
 
 
 const UserManage = () => {
     const axiosSecure = useAxiosSecure()
 
-    const { data: users = [], refetch } = useQuery({
+    const { data: users = [], refetch, isLoading } = useQuery({
         queryKey: ['users'],
         queryFn: async () => {
             const { data } = await axiosSecure.get(`/users`)
@@ -63,11 +64,25 @@ const UserManage = () => {
             console.error(error);
         }
     }
+    if (isLoading ) {
+        return <div className="min-h-screen flex justify-center items-center">
+            <Hourglass
+                visible={true}
+                height="80"
+                width="80"
+                ariaLabel="hourglass-loading"
+                wrapperStyle={{}}
+                wrapperClass=""
+                colors={['#306cce', '#72a1ed']}
+            />
+        </div>
+    }
 
     // console.log(users)
     return (
         <div className='py-8'>
-            <h1 className="text-center font-bold text-2xl sm:text-3xl mb-6">MANAGE USERS</h1>
+            <h1 className="text-center font-bold xl:text-3xl">MANAGE USERS</h1>
+            <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Streamline user administration with effective management tools and personalized support. </p>
             <div className='overflow-x-auto -mx-4 sm:-mx-8 px-4 sm:px-8 py-4'>
                 <div className='inline-block min-w-full overflow-hidden'>
                     <table className='min-w-full table-auto'>
@@ -75,43 +90,43 @@ const UserManage = () => {
                             <tr>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     USER NAME
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     USER EMAIL
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     USER ROLE
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     MAKE ADMIN
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     MAKE AGENT
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     MARK AS FRAUD
                                 </th>
                                 <th
                                     scope='col'
-                                    className='px-5 py-3 border-b text-left text-xs sm:text-sm font-semibold whitespace-nowrap'
+                                    className='px-5 py-3 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap text-blue-600'
                                 >
                                     DELETE USER
                                 </th>
@@ -126,7 +141,7 @@ const UserManage = () => {
                                     handleMakeAdmin={handleMakeAdmin}
                                     handleMakeAgent={handleMakeAgent}
                                     handleMarkAsFraud={handleMarkAsFraud}
-                                ></UserDataRow>)
+                                ></UserDataRow>).reverse()
                             }
                         </tbody>
                     </table>

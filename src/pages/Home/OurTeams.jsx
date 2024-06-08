@@ -2,7 +2,7 @@
 const OurTeams = () => {
     return (
         <section className="bg-white dark:bg-gray-900">
-            <div className="container px-6 py-10 mx-auto">
+            <div className="container px-6 py-5 lg:py-10 mx-auto">
                 <div className="xl:flex xl:items-center xl:-mx-4">
                     <div className="xl:w-1/2 xl:mx-4">
                         <h1 className="text-center font-bold xl:text-3xl mt-4 uppercase">Meet Our Leadership</h1>
@@ -22,8 +22,8 @@ const OurTeams = () => {
                                     alt="John Doe"
                                 />
                             </div>
-                            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Shahnawaz Sazid</h1>
-                            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300">FOUNDER-PROPEX.LTD</p>
+                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  dark:text-white uppercase">Shahnawaz Sazid</h1>
+                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-lg  dark:text-gray-300">FOUNDER-PROPEX.LTD</p>
                         </div>
 
                         <div>
@@ -34,8 +34,8 @@ const OurTeams = () => {
                                     alt="Mia"
                                 />
                             </div>
-                            <h1 className="mt-4 text-2xl font-semibold text-gray-700 capitalize dark:text-white">Maria Mou</h1>
-                            <p className="mt-2 text-gray-500 capitalize dark:text-gray-300">CEO-PROPEX.LTD</p>
+                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  dark:text-white uppercase">Maria Mou</h1>
+                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-xl  dark:text-gray-300">CEO-PROPEX.LTD</p>
                         </div>
                     </div>
                 </div>
