@@ -110,7 +110,7 @@ const CheckoutForm = ({ bookingInfo }) => {
                 buyerImage,
                 offeredMinPrice,
                 offeredMaxPrice,
-                offerPrice,
+                offerPrice : parseFloat(offerPrice),
                 status: 'bought',
                 transactionId: paymentIntent.id,
                 paymentDate: new Date(),
