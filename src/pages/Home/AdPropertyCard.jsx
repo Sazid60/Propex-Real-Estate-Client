@@ -37,7 +37,7 @@ const AdPropertyCard = ({ property }) => {
                                 </div>
                                 <div className="flex flex-col w-full xl:w-auto">
                                     {
-                                        selling_status === "sold" ? <p className="font-bold text-yellow-400">SOLDOUT</p> : <Link to={`/property-details/${propertyId}`}>
+                                        selling_status === "sold" ? <p className="font-bold flex justify-center items-center text-yellow-400">SOLDOUT</p> : <Link to={`/property-details/${propertyId}`}>
                                             <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">View Details</button>
                                         </Link>
                                     }

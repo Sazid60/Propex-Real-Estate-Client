@@ -48,7 +48,7 @@ const MakeOfferForm = () => {
             location: wish.location,
             agentName: wish.agentName,
             agentEmail: wish.agentEmail,
-            agentImage : wish.agentImage,
+            agentImage: wish.agentImage,
             description: wish.description,
             buyerName: user?.displayName,
             buyerEmail: user?.email,
@@ -155,6 +155,7 @@ const MakeOfferForm = () => {
                     <div className="mb-4">
                         <label className="text-gray-700">Description</label>
                         <textarea id="description" name="description" rows="4"
+                            readOnly
                             defaultValue={wish.description || ''}
                             className="mt-1 p-2 block w-full rounded-md border   border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
                     </div>
