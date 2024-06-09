@@ -84,7 +84,7 @@ const AllProperties = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    allProperties.map(property => <AllPropertyCard key={property._id} property={property}></AllPropertyCard>)
+                    allProperties.map(property => <AllPropertyCard key={property._id} property={property}></AllPropertyCard>).reverse()
                 }
             </div>
         </div>

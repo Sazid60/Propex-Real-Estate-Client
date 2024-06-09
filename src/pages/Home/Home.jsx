@@ -12,10 +12,18 @@ import { Hourglass } from "react-loader-spinner";
 const Home = () => {
     const axiosPublic = useAxiosPublic()
     // get all the properties
+    // const { data: allProperties = [], isLoading } = useQuery({
+    //     queryKey: ['allProperties'],
+    //     queryFn: async () => {
+    //         const { data } = await axiosPublic.get(`/advertisedProperties`)
+    //         return data
+    //     },
+    // })
+
     const { data: allProperties = [], isLoading } = useQuery({
         queryKey: ['allProperties'],
         queryFn: async () => {
-            const { data } = await axiosPublic.get(`/advertisedProperties`)
+            const { data } = await axiosPublic.get(`/advertisements`)
             return data
         },
     })
@@ -50,7 +58,7 @@ const Home = () => {
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Handpicked Properties Offering Comfort, Luxury, and Unmatched Value for Your Dream Home </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    allProperties.slice(0, 12).map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse()
+                    allProperties.map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse().slice(0,12)
                 }
             </div>
 

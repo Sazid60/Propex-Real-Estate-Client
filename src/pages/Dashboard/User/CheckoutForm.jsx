@@ -129,6 +129,9 @@ const CheckoutForm = ({ bookingInfo }) => {
 
                 await axiosSecure.patch(`/update-selling-status/${propertyId}`, { selling_status: "sold" })
 
+                // update the advertisement
+                await axiosSecure.patch(`/adRemove/${propertyId}`, { selling_status: "sold" })
+
                 //navigate korbo to property bought page
                 navigate('/dashboard/property-bought')
 

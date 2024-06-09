@@ -67,7 +67,7 @@ const MyAddedProperty = () => {
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Easily access and manage a comprehensive list of properties you've personally added to our platform. </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {
-                    properties.map(property => <PropertyCard key={property._id} property={property} handleDelete={handleDelete}></PropertyCard>)
+                    properties.map(property => <PropertyCard key={property._id} property={property} handleDelete={handleDelete}></PropertyCard>).reverse()
                 }
             </div>
         </div>

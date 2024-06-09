@@ -85,7 +85,7 @@ const MakeOfferForm = () => {
     }
     return (
         <div className="flex items-center justify-center min-h-screen ">
-            <div className="bg-white p-4 rounded shadow-md w-full max-w-6xl">
+            <div className=" p-4 rounded shadow-md w-full max-w-6xl">
                 <h2 className="text-2xl font-bold mb-3 text-center">MAKE AN OFFER</h2>
                 <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-4 font-sedan" >Please enter your offer price within the specified range to proceed. Ensure all details are correct before submitting your offer.</p>
                 <div className='relative h-[150px] md:h-[300px] lg:h-[300px] w-full mb-4'>
@@ -106,7 +106,7 @@ const MakeOfferForm = () => {
                             type="text"
                             id="title"
                             defaultValue={wish.title || ''}
-                            className="mt-1 w-full px-3 py-2 bg-gray-100  border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2   border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             readOnly
 
                         />
@@ -117,7 +117,7 @@ const MakeOfferForm = () => {
                             type="text"
                             id="location"
                             defaultValue={wish.location || ''}
-                            className="mt-1 w-full px-3 py-2 bg-gray-100  border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2   border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             readOnly
 
                         />
@@ -129,7 +129,7 @@ const MakeOfferForm = () => {
                             id="agentName"
                             defaultValue={wish.agentName || ''}
                             readOnly
-                            className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
@@ -139,7 +139,7 @@ const MakeOfferForm = () => {
                             id="agentEmail"
                             defaultValue={wish.agentEmail || ''}
                             readOnly
-                            className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
@@ -148,7 +148,7 @@ const MakeOfferForm = () => {
                             type="text"
                             id="minPrice"
                             value={`$ ${wish.minPrice} - $ ${wish.maxPrice}` || ''}
-                            className="mt-1 w-full px-3 py-2 bg-gray-100  border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             readOnly
                         />
                     </div>
@@ -156,7 +156,7 @@ const MakeOfferForm = () => {
                         <label className="text-gray-700">Description</label>
                         <textarea id="description" name="description" rows="4"
                             defaultValue={wish.description || ''}
-                            className="mt-1 p-2 block w-full rounded-md border bg-gray-100  border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
+                            className="mt-1 p-2 block w-full rounded-md border   border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500 sm:text-sm" placeholder="Write Description here..."></textarea>
                     </div>
                     <div className="mb-4">
                         <label className="text-gray-700">Buyer Name</label>
@@ -165,7 +165,7 @@ const MakeOfferForm = () => {
                             id="buyerName"
                             defaultValue={user?.displayName || ''}
                             readOnly
-                            className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
@@ -175,7 +175,7 @@ const MakeOfferForm = () => {
                             id="buyerEmail"
                             defaultValue={user?.email || ''}
                             readOnly
-                            className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">
@@ -185,7 +185,7 @@ const MakeOfferForm = () => {
                             id="buyingDate"
                             defaultValue={formattedDate || ''}
                             readOnly
-                            className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                            className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                         />
                     </div>
                     <div className="mb-4">

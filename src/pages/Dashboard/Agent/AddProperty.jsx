@@ -94,7 +94,7 @@ const AddProperty = () => {
             <h1 className="text-center font-bold xl:text-3xl">ADD YOUR PROPERTY</h1>
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Easily add your property to our platform and reach potential buyers or renters. </p>
             <div className="flex items-center justify-center  ">
-                <div className="bg-white p-4 rounded shadow-md w-full max-w-4xl">
+                <div className="bg-base-100 p-4 rounded shadow-md w-full max-w-4xl">
 
                     <form id="add-property-form" onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -102,7 +102,7 @@ const AddProperty = () => {
                             <input
                                 type="text"
                                 id="title"
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -111,7 +111,7 @@ const AddProperty = () => {
                             <input
                                 type="text"
                                 id="location"
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -120,7 +120,7 @@ const AddProperty = () => {
                             <input
                                 type="file"
                                 id="propImage"
-                                className="mt-1 p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white"
+                                className="mt-1 p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer "
                                 required
                             />
                         </div>
@@ -131,7 +131,7 @@ const AddProperty = () => {
                                 id="agentName"
                                 value={user?.displayName || ''}
                                 readOnly
-                                className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             />
                         </div>
                         <div className="mb-4">
@@ -141,7 +141,7 @@ const AddProperty = () => {
                                 id="agentEmail"
                                 value={user?.email || ''}
                                 readOnly
-                                className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             />
                         </div>
                         <div className="mb-4">
@@ -149,7 +149,7 @@ const AddProperty = () => {
                             <input
                                 type="number"
                                 id="minPrice"
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -158,7 +158,7 @@ const AddProperty = () => {
                             <input
                                 type="number"
                                 id="maxPrice"
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>

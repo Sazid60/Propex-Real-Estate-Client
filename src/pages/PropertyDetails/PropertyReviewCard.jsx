@@ -9,7 +9,7 @@ const PropertyReviewCard = ({ single_review }) => {
     };
 
     return (
-        <div className="container  flex flex-col w-full max-w-6xl p-3 xl:p-3 mx-auto divide-y rounded-md dark:divide-gray-300 dark:bg-gray-50 dark:text-gray-800">
+        <div className="container  flex flex-col w-full max-w-6xl p-3 xl:p-3 mx-auto divide-y rounded-md dark:divide-gray-300 ">
             <div className="flex justify-center ">
 
                 <div className="flex flex-col items-center  dark:text-yellow-700">
@@ -17,19 +17,18 @@ const PropertyReviewCard = ({ single_review }) => {
                     <span className=" font-bold text-xs md:text-lg lg:text-lg">{rating} </span>
                 </div>
             </div>
-            <div className="p-4 space-y-2 text-sm dark:text-gray-600 text-center">
-                <p className="font-bold text-sm md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">PROPERTY: <span className="text-blue-700">{reviewedPropertyName}</span></p>
+            <div className="p-4 space-y-2 text-sm  text-center">
+                <p className="font-bold text-xs md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">PROPERTY: <span className="text-blue-700">{reviewedPropertyName}</span></p>
                 <p className="text-xs md:text-xs lg:text-lg xl:text-sm">
-                    {/* {review.split(' ').slice(0, 10).join(' ') + (review.split(' ').length > 10 ? '...' : '')} */}
-                    {review}
+                    {review.split(' ').slice(0, 20).join(' ') + (review.split(' ').length > 20 ? '...' : '')}
                 </p> <hr />
                 <div className="flex flex-col justify-center items-center ">
                     <div>
-                        <img src={reviewerImage} alt="" className="object-cover w-12 h-12 rounded-full dark:bg-gray-500" />
+                        <img src={reviewerImage} alt="" className="object-cover w-12 h-12 rounded-full " />
                     </div>
                     <div>
                         <h4 className="font-bold text-xs md:text-lg lg:text-lg">{reviewerName}</h4>
-                        <span className=" dark:text-gray-600 text-[8px] md:text-sm lg:text-sm">{formatDate(reviewedTime)}</span>
+                        <span className="  text-[8px] md:text-sm lg:text-sm">{formatDate(reviewedTime)}</span>
                     </div>
                 </div>
             </div>

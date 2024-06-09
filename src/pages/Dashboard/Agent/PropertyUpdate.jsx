@@ -67,7 +67,7 @@ const PropertyUpdate = () => {
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Effortlessly update and enhance your property listing with our user-friendly tools </p>
             <div className="flex items-center justify-center  ">
 
-                <div className="bg-white p-4 rounded shadow-md w-full max-w-4xl">
+                <div className="bg-base-100 p-4 rounded shadow-md w-full max-w-4xl">
 
                     <form id="add-property-form" onSubmit={handleSubmit}>
                         <div className="mb-4">
@@ -77,7 +77,7 @@ const PropertyUpdate = () => {
                                 id="title"
                                 value={propertyData.title || ''}
                                 onChange={e => setPropertyData({ ...propertyData, title: e.target.value })}
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -88,7 +88,7 @@ const PropertyUpdate = () => {
                                 id="location"
                                 value={propertyData.location || ''}
                                 onChange={e => setPropertyData({ ...propertyData, location: e.target.value })}
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -98,7 +98,7 @@ const PropertyUpdate = () => {
                                 type="file"
                                 id="propImage"
                                 onChange={e => handleImage(e.target.files[0])}
-                                className="mt-1 p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer bg-white"
+                                className="mt-1 p-2 w-full text-sm text-gray-900 border border-gray-300 rounded-lg cursor-pointer "
                                 accept="image/*"
                             />
                         </div>
@@ -109,7 +109,7 @@ const PropertyUpdate = () => {
                                 id="agentName"
                                 value={propertyData.agentName || ''}
                                 readOnly
-                                className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             />
                         </div>
                         <div className="mb-4">
@@ -119,7 +119,7 @@ const PropertyUpdate = () => {
                                 id="agentEmail"
                                 value={propertyData.agentEmail || ''}
                                 readOnly
-                                className="mt-1 w-full px-3 py-2 bg-gray-100 border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                             />
                         </div>
                         <div className="mb-4">
@@ -129,7 +129,7 @@ const PropertyUpdate = () => {
                                 id="minPrice"
                                 value={propertyData.minPrice || ''}
                                 onChange={e => setPropertyData({ ...propertyData, minPrice: e.target.value })}
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -140,7 +140,7 @@ const PropertyUpdate = () => {
                                 id="maxPrice"
                                 value={propertyData.maxPrice || ''}
                                 onChange={e => setPropertyData({ ...propertyData, maxPrice: e.target.value })}
-                                className="mt-1 w-full px-3 py-2 bg-white border border-gray-300 rounded-md shadow-sm sm:text-sm"
+                                className="mt-1 w-full px-3 py-2  border border-gray-300 rounded-md shadow-sm sm:text-sm"
                                 required
                             />
                         </div>
@@ -153,9 +153,9 @@ const PropertyUpdate = () => {
                         </div>
                         <div>
                             {
-                                uploading ? <button
+                                uploading ? <button disabled
 
-                                    className="w-full py-2 px-4 text-white bg-black hover:bg-slate-400 font-semibold rounded-md"
+                                    className="w-full py-2 px-4 text-white bg-orange-400 hover:bg-slate-400 font-semibold rounded-md"
                                 >
                                     Image Uploading.........
                                 </button> : <button

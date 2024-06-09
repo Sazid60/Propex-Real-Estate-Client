@@ -109,13 +109,21 @@ const PropertyDetails = () => {
             wisherImage: user?.photoURL,
             offered_status: 'pending'
         }
-        console.log(wishlist_property)
+        // console.log(wishlist_property)
 
         try {
             const { data } = await axiosSecure.post('/wishlist-property', wishlist_property)
-            toast.success('Added To Wishlist')
-            navigate('/dashboard/wishlist')
-            console.log(data)
+            // console.log(data)
+
+            if (data.insertedId) {
+                toast.success('Property added to wishlist');
+                navigate('/dashboard/wishlist');
+            } else {
+                toast.error(data.message);
+            }
+            // toast.success('Added To Wishlist')
+            // navigate('/dashboard/wishlist')
+            // console.log(data)
         } catch (error) {
             console.log(error)
         }

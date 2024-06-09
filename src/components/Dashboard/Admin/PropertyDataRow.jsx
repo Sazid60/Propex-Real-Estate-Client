@@ -5,22 +5,22 @@ const PropertyDataRow = ({property,handleVerify,handleReject}) => {
     const { _id, title, location, agentName, agentEmail, maxPrice, minPrice, verification_status } = property
     return (
         <tr>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 {title}
             </td>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 {location}
             </td>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 {agentName}
             </td>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 {agentEmail}
             </td>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 ${minPrice} - ${maxPrice}
             </td>
-            <td className='px-5 py-5 border-b bg-white text-sm whitespace-nowrap'>
+            <td className='px-5 py-5 border-b  text-sm whitespace-nowrap'>
                 {verification_status === 'verified' && <span className='text-green-500'>Verified</span>}
                 {verification_status === 'rejected' && <span className='text-red-500'>Rejected</span>}
                 {verification_status !== 'verified' && verification_status !== 'rejected' && (

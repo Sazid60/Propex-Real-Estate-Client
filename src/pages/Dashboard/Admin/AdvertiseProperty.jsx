@@ -16,17 +16,47 @@ const AdvertiseProperty = () => {
     })
 
     // Handle Advertise
-    const handleAdvertise = async (id,verification_status) =>{
-        console.log(id)
-        if(verification_status !== "verified"){
+    // const handleAdvertise = async (id,verification_status) =>{
+    //     console.log(id)
+    //     if(verification_status !== "verified"){
+    //         return toast.error('Please Verify First To Advertise This Property')
+    //     }
+    //     const {data } = await axiosSecure.patch(`/property/advertise/${id}`, {advertised : 'yes'})
+    //     console.log(data)
+    //     refetch()
+    // }
+
+    const handleAdvertise = async (id, property) => {
+        const { _id: propertyId, title, location, agentName, agentEmail, maxPrice, minPrice, verification_status, propertyImage, description, agentImage, selling_status } = property
+
+        const advertisement = {
+            propertyId,
+            title,
+            location,
+            agentName,
+            agentEmail,
+            maxPrice,
+            minPrice,
+            verification_status,
+            propertyImage,
+            description,
+            advertised: "yes",
+            advertising_status: "advertised",
+            agentImage,
+            selling_status
+
+        }
+        // console.log(id)
+        if (verification_status !== "verified") {
             return toast.error('Please Verify First To Advertise This Property')
         }
-        const {data } = await axiosSecure.patch(`/property/advertise/${id}`, {advertised : 'yes'})
-        console.log(data)
+        await axiosSecure.patch(`/property/advertise/${id}`, { advertised: 'yes' })
+        await axiosSecure.post(`/propertyAdvertise`, advertisement)
+        toast.success('Property Advertised Successfully')
         refetch()
     }
 
-    if (isLoading ) {
+    if (isLoading) {
         return <div className="min-h-screen flex justify-center items-center">
             <Hourglass
                 visible={true}
@@ -67,7 +97,7 @@ const AdvertiseProperty = () => {
                                 >
                                     AGENT NAME
                                 </th>
-        
+
                                 <th
                                     scope='col'
                                     className='px-5 py-3 text-blue-700 border border-b-blue-700 text-left text-xs sm:text-sm font-semibold whitespace-nowrap '
@@ -90,7 +120,7 @@ const AdvertiseProperty = () => {
                         </thead>
                         <tbody>
                             {
-                                properties.map(property => <AdvertiseDataRow key={property._id} property={property} handleAdvertise={handleAdvertise}  ></AdvertiseDataRow>)
+                                properties.map(property => <AdvertiseDataRow key={property._id} property={property} handleAdvertise={handleAdvertise}  ></AdvertiseDataRow>).reverse()
                             }
                         </tbody>
                     </table>

@@ -119,7 +119,7 @@ const RequestedProperty = () => {
                         </thead>
                         <tbody>
                             {
-                                offerings.map(offer => <ReqPropertyDataRow key={offer._id} offer={offer} handleReject={handleReject} handleAccept ={handleAccept}></ReqPropertyDataRow>)
+                                offerings.map(offer => <ReqPropertyDataRow key={offer._id} offer={offer} handleReject={handleReject} handleAccept ={handleAccept}></ReqPropertyDataRow>).reverse()
                             }
                         </tbody>
                     </table>

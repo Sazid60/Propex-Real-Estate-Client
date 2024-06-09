@@ -128,7 +128,7 @@ const MySoldProperty = () => {
                                         <td className='px-5 py-3 border-b text-xs sm:text-sm whitespace-nowrap'>{property.buyerName}</td>
                                         <td className='px-5 py-3 border-b text-xs sm:text-sm whitespace-nowrap text-blue-600'>{property.offerPrice} $</td>
                                     </tr>
-                                ))
+                                )).reverse()
                             }
                         </tbody>
                     </table>

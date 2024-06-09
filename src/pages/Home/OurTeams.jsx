@@ -1,13 +1,13 @@
 
 const OurTeams = () => {
     return (
-        <section className="bg-white dark:bg-gray-900">
+        <section className="bg-white ">
             <div className="container px-6 py-5 lg:py-10 mx-auto">
                 <div className="xl:flex xl:items-center xl:-mx-4">
                     <div className="xl:w-1/2 xl:mx-4">
                         <h1 className="text-center font-bold xl:text-3xl mt-4 uppercase">Meet Our Leadership</h1>
                         <div className="flex justify-center items-center">
-                            <p className="max-w-2xl mt-4 text-gray-500 dark:text-gray-300">
+                            <p className="max-w-2xl mt-4 text-gray-500 ">
                             Meet our dedicated team driving our success, each contributing unique skills to our mission.
                             </p>
                         </div>
@@ -22,8 +22,8 @@ const OurTeams = () => {
                                     alt="John Doe"
                                 />
                             </div>
-                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  dark:text-white uppercase">Shahnawaz Sazid</h1>
-                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-lg  dark:text-gray-300">FOUNDER-PROPEX.LTD</p>
+                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  uppercase">Shahnawaz Sazid</h1>
+                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-lg">FOUNDER-PROPEX.LTD</p>
                         </div>
 
                         <div>
@@ -34,8 +34,8 @@ const OurTeams = () => {
                                     alt="Mia"
                                 />
                             </div>
-                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  dark:text-white uppercase">Maria Mou</h1>
-                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-xl  dark:text-gray-300">CEO-PROPEX.LTD</p>
+                            <h1 className="mt-4 text-sm md:text-sm lg:text-xl xl:text-xl font-semibold text-gray-700  uppercase">Maria Mou</h1>
+                            <p className="mt-2 text-gray-500 text-sm md:text-sm lg:text-lg xl:text-xl">CEO-PROPEX.LTD</p>
                         </div>
                     </div>
                 </div>

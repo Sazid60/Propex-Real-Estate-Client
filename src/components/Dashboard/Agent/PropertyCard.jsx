@@ -16,13 +16,13 @@ const PropertyCard = ({ property, handleDelete }) => {
                 </h1>
             </figure>
             <div className="p-2">
-                <h2 className="font-bold text-sm md:text-sm lg:text-xl xl:text-2xl mb-2 uppercase text-center">{title}</h2>
-                <p className="mb-4 text-xs md:text-sm lg:text-sm text-center xl:h-20" >
+                <h2 className="font-bold text-sm md:text-sm xl:text-xl mb-2 uppercase text-center text-blue-600">{title}</h2>
+                <p className="mb-4 text-xs md:text-sm lg:text-sm text-center md:h-24 lg:h-14 xl:h-16" >
                     {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
                 </p>
                 <div className="">
-                    <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-sm mb-2 mt-3 text-center">Price: <span className="text-blue-500">$ {minPrice} - $ {maxPrice}</span></p>
-                    <p className="font-bold text-xs md:text-xs lg:text-lg xl:text-sm mb-2 mt-3 text-center">Location: <span className="font-normal">{location}</span></p>
+                    <p className="font-bold text-xs md:text-xs lg:text-sm xl:text-sm mb-2 mt-3 text-center">Price: <span className="text-blue-500">$ {minPrice} - $ {maxPrice}</span></p>
+                    <p className="font-bold text-xs md:text-xs lg:text-sm xl:text-sm mb-2 mt-3 text-center whitespace-nowrap">Location: <span className="font-normal">{location}</span></p>
                 </div>
                 <div className="">
                     <h1 className="text-center text-xs md:text-xs lg:text-sm font-semibold mb-2 mt-4 text-blue-800">ADDED BY</h1>
