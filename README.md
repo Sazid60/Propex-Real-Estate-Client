@@ -59,6 +59,6 @@ A MERN stack-powered real estate platform catering to users, agents, and admins.
 
 
 ### Technologies used : 
-React.js | HTML5 | Tailwind CSS | Daisy UI | Mamba UI | Meraki UI | Node.js | Express.js | MongoDB | JWT | Firebase
+React.js | HTML5 | Tailwind CSS | Daisy UI | Mamba UI | Meraki UI | Node.js | Express.js | MongoDB | JWT | Firebase | Axios | Tanstack Query
 
 
