@@ -6,7 +6,7 @@
 #### Category : Real Estate Website
 
 #### Website URL: [https://propex-client.web.app/](https://propex-client.web.app/)
-#### Server-Side epository: [https://github.com/Sazid60/Propex-Real-Estate-Client/)
+#### Server-Side epository: https://github.com/Sazid60/Propex-Real-Estate-Client/
 
 
 
