@@ -2,7 +2,7 @@
 const OurTeams = () => {
     return (
         <section className="bg-white ">
-            <div className="container px-6 py-5 lg:py-10 mx-auto">
+            <div className=" px-6 py-5 lg:py-10 ">
                 <div className="xl:flex xl:items-center xl:-mx-4">
                     <div className="xl:w-1/2 xl:mx-4">
                         <h1 className="text-center font-bold xl:text-3xl mt-4 uppercase">Meet Our Leadership</h1>

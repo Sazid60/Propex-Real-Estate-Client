@@ -6,7 +6,7 @@ import { GiThreeFriends } from "react-icons/gi";
 const OurFeatures = () => {
     return (
         <section className="lg:mb-10">
-            <div className="container lg:px-6  mx-auto">
+            <div className=" lg:px-6  ">
                 <div className="flex flex-col  justify-center items-center xl:flex-row lg:gap-4">
                     <div className="w-full xl:w-1/2">
                         <iframe className="min-w-full mt-6 h-64 md:h-[450px] rounded-xl overflow-hidden" src="https://www.youtube.com/embed/LEqF_gXCygc?si=l2UvS4luMu6GPqHo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
