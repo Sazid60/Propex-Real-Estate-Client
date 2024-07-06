@@ -6,6 +6,8 @@
 #### Category : Real Estate Website
 
 #### Website URL: [https://propex-client.web.app/](https://propex-client.web.app/)
+#### Server-Side Repository: https://github.com/Sazid60/Propex-Real-Estate-Server
+
 
 
 ## ADMIN LOGIN DETAILS
@@ -59,6 +61,15 @@ A MERN stack-powered real estate platform catering to users, agents, and admins.
 
 
 ### Technologies used : 
-React.js | HTML5 | Tailwind CSS | Daisy UI | Mamba UI | Meraki UI | Node.js | Express.js | MongoDB | JWT | Firebase | Axios | Tanstack Query
+React.js | HTML5 | Tailwind CSS | Daisy UI | Mamba UI | Meraki UI | Node.js | Express.js | MongoDB | JWT | Firebase | Axios | Tanstack Query |
+
+### Instructiosn For Locally Running The Project:
+- Clone The Repository " git clone <repository-url> "
+- Install All The Dependecies " npm intall "
+- Create a .env file in the root directory of the project and add the required fields.
+- Customize .env variables according to your specific environment setup.
+- Ensure Node.js and npm (or yarn) are installed on your system.
+- For Further Guidence You Can Connect me and ask any queries.
+
 
 
