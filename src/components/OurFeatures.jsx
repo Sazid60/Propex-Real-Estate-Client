@@ -9,7 +9,7 @@ const OurFeatures = () => {
             <div className=" lg:px-6  ">
                 <div className="flex flex-col  justify-center items-center xl:flex-row lg:gap-4">
                     <div className="w-full xl:w-1/2">
-                        <iframe className="min-w-full mt-6 h-64 md:h-[450px] rounded-xl overflow-hidden" src="https://www.youtube.com/embed/LEqF_gXCygc?si=l2UvS4luMu6GPqHo" title="YouTube video player" frameBorder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
+                    <iframe className="min-w-full mt-6 h-64 md:h-[640px] rounded-xl overflow-hidden " src="/property.mp4" title="video player"  allow="accelerometer; autoplay; clipboard-write; gyroscope; web-share" referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                     </div>
                     <div className="w-full xl:w-1/2">
                         <div className="grid grid-cols-1 md:grid-cols-2 gap-4 lg:gap-8 mt-4 xl:mt-12 xl:gap-12">

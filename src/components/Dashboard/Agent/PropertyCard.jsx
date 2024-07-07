@@ -27,31 +27,32 @@ const PropertyCard = ({ property, handleDelete }) => {
                 <div className="">
                     <h1 className="text-center text-xs md:text-xs lg:text-sm font-semibold mb-2 mt-4 text-blue-800">ADDED BY</h1>
                     <hr className="mb-2 mt-1 border-t-1 border-gray-300" />
-                    <div className="flex flex-col items-center xl:flex-row xl:justify-between">
-                        <div className="flex flex-col xl:flex-row lg:gap-4 justify-center items-center mb-2 xl:mb-0">
+                    <div className=" flex justify-center items-center">
+                        {/* <div className="flex flex-col xl:flex-row lg:gap-4 justify-center items-center mb-2 xl:mb-0">
                             <div className="rounded-full overflow-hidden border-2 border-[#4169E1] h-10 w-10 flex items-center justify-center">
                                 <img src={agentImage} className="h-full w-full object-cover" alt="" />
-                            </div>
-                            <div className="text-center xl:text-left">
+                            </div> 
+                             <div className="text-center xl:text-left">
                                 <h1 className="text-xs md:text-xs lg:text-base"><span className="font-semibold">Name:</span> {agentName}</h1>
                                 <h1 className="text-xs md:text-xs lg:text-base"><span className="font-semibold">Email:</span> {agentEmail}</h1>
                             </div>
-                        </div>
-                        {
-                            selling_status === "sold" ? <p className="text-yellow-500 font-bold text-sm">SOLD</p> : <div className="flex flex-col w-full xl:w-auto">
-                                {verification_status !== 'rejected' && (
-                                    <Link to={`property-update/${_id}`}>
-                                        <button
-                                            className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">
-                                            Update
-                                        </button>
-                                    </Link>
-                                )}
-                                <button
-                                    onClick={() => handleDelete(_id)}
-                                    className="btn btn-sm bg-red-600 text-white w-full font-semibold">Delete</button>
-                            </div>
-                        }
+                        </div> */}
+       
+                            {
+                                selling_status === "sold" ? <p className="text-yellow-500 font-bold text-sm lg:text-lg xl:text-xl">SOLD</p> : <div className="flex">
+                                    {verification_status !== 'rejected' && (
+                                        <Link to={`property-update/${_id}`}>
+                                            <button
+                                                className="btn btn-sm xl:btn-md bg-[#4169E1] w-full text-white  mb-2 md:mb-0 font-semibold">
+                                                Update
+                                            </button>
+                                        </Link>
+                                    )}
+                                    <button
+                                        onClick={() => handleDelete(_id)}
+                                        className="btn btn-sm xl:btn-md bg-red-600  text-white  mb-2 md:mb-0 font-semibold">Delete</button>
+                                </div>
+                            }
 
                     </div>
                 </div>
