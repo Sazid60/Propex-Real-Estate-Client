@@ -60,7 +60,7 @@ const Home = () => {
                 {
                     allProperties.map(property => <AdPropertyCard key={property._id} property={property}></AdPropertyCard>).reverse().slice(0,12)
                 }
-            </div>
+            </div> <hr className=" border-t-2" />
 
             <div className="mt-6 text-center">
                 <h1 className="text-center font-bold xl:text-3xl mt-4">REVIEWS</h1>
@@ -72,12 +72,13 @@ const Home = () => {
                         reviews.map(review => <PropertyReviewCard key={review._id} single_review={review}></PropertyReviewCard>).reverse()
                     }
                 </div> */}
-                <ReviewBanner></ReviewBanner>
+                <ReviewBanner></ReviewBanner> <hr className=" border-t-2" />
 
 
                 <h1 className="text-center font-bold xl:text-3xl mt-4">WHAT DO WE OFFER</h1>
                 <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2" >We offer a comprehensive range of real estate services tailored to your needs</p>
                 <OurFeatures></OurFeatures>
+                 <hr className=" border-t-2" />
                 <OurTeams></OurTeams>
 
             </div>
