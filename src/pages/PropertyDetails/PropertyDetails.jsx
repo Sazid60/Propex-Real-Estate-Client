@@ -150,7 +150,7 @@ const PropertyDetails = () => {
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-6 font-sedan" >Discover the allure of our spaces through intricate property details.</p>
 
             <div className="flex flex-col">
-                <div className='relative h-[150px] md:h-[300px] lg:h-[400px] w-full'>
+                <div className='relative h-[150px] md:h-[300px] lg:h-[400px] xl:h-[600px] w-full'>
                     <div className='absolute inset-0 bg-cover bg-center bg-no-repeat flex justify-center items-center'>
                         <img src={propertyImage} alt="Banner Image" className="w-full h-full object-cover" />
                     </div>
@@ -158,7 +158,7 @@ const PropertyDetails = () => {
 
                 <div className="mt-3 ">
                     <div className="flex justify-between items-center mb-2">
-                        <h1 className="text-sm md:text-lg lg:text-3xl font-bold text-blue-600 uppercase" >{title}</h1>
+                        <h1 className="text-sm md:text-lg lg:text-3xl font-bold text-blue-600 uppercase font-amatic" >{title}</h1>
                     </div>
                     <p className="mb-4 text-xs md:text-lg lg:text-lg" >{description}</p>
 
