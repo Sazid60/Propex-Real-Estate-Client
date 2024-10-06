@@ -1,21 +1,23 @@
 import { Link } from "react-router-dom";
 
-
 const AdPropertyCard = ({ property }) => {
-    const { _id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status, description, advertised, selling_status, propertyId } = property
+    const { _id, title, location, propertyImage, agentName, agentImage, agentEmail, maxPrice, minPrice, verification_status, description, advertised, selling_status, propertyId } = property;
     return (
         <>
             {
-                verification_status === "verified" && advertised === "yes" && <div className="bg-base-100 shadow-xl p-2 rounded-none hover:shadow-2xl">
-                    <figure className="w-full">
-                        <img className="object-cover h-32 md:h-40 lg:h-40 w-full" src={propertyImage} alt="" />
-                        <h1 className={`w-full px-2 text-center uppercase text-white ${verification_status === 'pending' ? 'bg-slate-700' : verification_status === 'verified' ? 'bg-black' : 'bg-red-500'}`}>
+                verification_status === "verified" && advertised === "yes" && <div className="bg-base-100 shadow-xl p-2 hover:shadow-2xl rounded-lg hover:-translate-y-2 duration-300 group">
+                    <figure className="w-full overflow-hidden">
+                        <div className="w-full h-32 md:h-40 lg:h-52 overflow-hidden rounded-t-lg">
+                            {/* Apply the zoom effect on hover via the group-hover utility */}
+                            <img className="object-cover h-full w-full rounded-t-lg transform transition-transform duration-300 ease-in-out group-hover:scale-110" src={propertyImage} alt="" />
+                        </div>
+                        <h1 className={`w-full rounded-b-lg px-2 text-center uppercase text-white ${verification_status === 'pending' ? 'bg-slate-700' : verification_status === 'verified' ? 'bg-black' : 'bg-red-500'}`}>
                             {verification_status}
                         </h1>
                     </figure>
                     <div className="p-2">
                         <h2 className="font-bold text-sm md:text-sm xl:text-xl mb-2 uppercase text-center text-blue-600">{title}</h2>
-                        <p className="mb-4 text-xs md:text-sm lg:text-sm text-center md:h-16 lg:h-14 xl:h-12" >
+                        <p className="mb-4 text-xs md:text-sm lg:text-sm text-center md:h-16 lg:h-14 xl:h-12">
                             {description.split(' ').slice(0, 20).join(' ') + (description.split(' ').length > 20 ? '...' : '')}
                         </p>
                         <div className="">
@@ -41,14 +43,12 @@ const AdPropertyCard = ({ property }) => {
                                             <button className="btn btn-sm bg-[#4169E1] text-white w-full mb-2 md:mb-0 font-semibold">View Details</button>
                                         </Link>
                                     }
-
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
             }
-
         </>
     );
 };
