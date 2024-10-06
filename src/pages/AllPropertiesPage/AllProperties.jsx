@@ -67,17 +67,26 @@ const AllProperties = () => {
 
 
             <form onSubmit={handleSearch} >
-                <div className="flex justify-center items-center mt-6 ">
-                    <label className="input input-bordered border-blue-600 flex md:w-[60%] items-center gap-2  shadow-xl">
-                        <input type="text" id="text" name="text" className="grow" placeholder="Search" />
-                        <button className="btn btn-sm bg-blue-600 text-white">Search</button>
-                    </label>
+                <div className="flex justify-center items-center mt-6">
+                    <div className="flex w-full max-w-md md:max-w-lg lg:max-w-xl items-center gap-2">
+                        <input
+                            type="text"
+                            id="text"
+                            name="text"
+                            className="input input-bordered border-blue-600 w-full p-2 rounded-l-lg"
+                            placeholder="Search"
+                        />
+                        <button className="btn  bg-[#4169E1] text-white px-4 rounded-r-lg">
+                            Search
+                        </button>
+                    </div>
                 </div>
             </form>
 
-            {searchClicked && ( 
+
+            {searchClicked && (
                 <div className="flex justify-center mt-3  items-center">
-                    <button className="btn bg-blue-600 rounded-md btn-sm  text-white" onClick={handleShowAll}>SHOW ALL</button>
+                    <button className="btn bg-[#4169E1] rounded-md btn-sm  text-white" onClick={handleShowAll}>SHOW ALL</button>
                 </div>
             )}
 

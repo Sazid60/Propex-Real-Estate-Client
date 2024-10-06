@@ -54,7 +54,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
 
-            <h1 className="text-center font-bold xl:text-3xl mt-4">ADVERTISED PROPERTIES</h1>
+            <h1 className="text-center font-bold xl:text-3xl mt-4">NEW PROPERTIES</h1>
             <p className="text-center  text-xs md:text-lg lg:text-lg max-w-2xl mx-auto mt-2 mb-3" >Handpicked Properties Offering Comfort, Luxury, and Unmatched Value for Your Dream Home </p>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-3 gap-4 mb-6 mt-4 lg:mx-10 ">
                 {

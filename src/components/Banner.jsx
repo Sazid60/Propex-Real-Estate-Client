@@ -7,7 +7,7 @@ import { Autoplay } from 'swiper/modules';
 
 const Banner = () => {
     return (
-        <div>
+        <div className=''>
             <div className='relative'>
                 <div className='absolute inset-0 flex flex-col z-10 translate-x-2 md:translate-x-16 lg:translate-x-16 translate-y-6 md:translate-y-16 lg:translate-y-16 w-[70%] h-[70%]'>
                     <h1 className='font-extrabold text-2xl md:text-4xl lg:text-6xl text-white mb-2 md:mb-3 lg:mb-6'>
