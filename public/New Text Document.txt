@@ -1,0 +1,307 @@
+const properties = [
+    {
+        title: "Modern Family Home",
+        location: "123 Elm Street, Springfield",
+        propertyImage: "https://example.com/images/property1.jpg",
+        maxPrice: 500000,
+        minPrice: 450000,
+        description: "A beautiful modern family home located in a friendly neighborhood. This property features 4 bedrooms, 3 bathrooms, a spacious living area, and a large backyard. Perfect for families looking for a comfortable and stylish place to call home."
+    },
+    {
+        title: "Luxury Villa",
+        location: "456 Oak Avenue, Beverly Hills",
+        propertyImage: "https://example.com/images/property2.jpg",
+        maxPrice: 3000000,
+        minPrice: 2800000,
+        description: "An exquisite luxury villa with stunning ocean views, 6 bedrooms, 7 bathrooms, and a private pool. Ideal for those seeking elegance and comfort in a prime location."
+    },
+    {
+        title: "Downtown Apartment",
+        location: "789 Maple Street, New York City",
+        propertyImage: "https://example.com/images/property3.jpg",
+        maxPrice: 1200000,
+        minPrice: 1100000,
+        description: "A chic downtown apartment with 2 bedrooms, 2 bathrooms, and a modern kitchen. Located in the heart of the city, close to all amenities and public transportation."
+    },
+    {
+        title: "Country Cottage",
+        location: "321 Birch Lane, Countryside",
+        propertyImage: "https://example.com/images/property4.jpg",
+        maxPrice: 350000,
+        minPrice: 300000,
+        description: "A charming country cottage with 3 bedrooms, 2 bathrooms, and a cozy fireplace. Surrounded by nature, perfect for a peaceful and quiet lifestyle."
+    },
+    {
+        title: "Beachfront Condo",
+        location: "654 Palm Drive, Miami Beach",
+        propertyImage: "https://example.com/images/property5.jpg",
+        maxPrice: 850000,
+        minPrice: 800000,
+        description: "A stunning beachfront condo with 3 bedrooms, 3 bathrooms, and breathtaking ocean views. Enjoy the luxury of living right on the beach."
+    },
+    {
+        title: "Suburban House",
+        location: "987 Pine Road, Suburbia",
+        propertyImage: "https://example.com/images/property6.jpg",
+        maxPrice: 600000,
+        minPrice: 550000,
+        description: "A spacious suburban house with 5 bedrooms, 4 bathrooms, and a large backyard. Perfect for families who want space and comfort."
+    },
+    {
+        title: "Mountain Cabin",
+        location: "123 Aspen Way, Mountainview",
+        propertyImage: "https://example.com/images/property7.jpg",
+        maxPrice: 400000,
+        minPrice: 350000,
+        description: "A rustic mountain cabin with 2 bedrooms, 1 bathroom, and a stunning view of the mountains. Ideal for a getaway or a peaceful retreat."
+    },
+    {
+        title: "Historic Townhouse",
+        location: "456 Cedar Street, Old Town",
+        propertyImage: "https://example.com/images/property8.jpg",
+        maxPrice: 750000,
+        minPrice: 700000,
+        description: "A beautifully restored historic townhouse with 4 bedrooms, 3 bathrooms, and a modern kitchen. Located in a historic district with plenty of charm."
+    },
+    {
+        title: "Modern Loft",
+        location: "789 Broadway, Metropolis",
+        propertyImage: "https://example.com/images/property9.jpg",
+        maxPrice: 950000,
+        minPrice: 900000,
+        description: "A stylish modern loft with 2 bedrooms, 2 bathrooms, and an open-plan living area. Located in a vibrant neighborhood with lots of amenities."
+    },
+    {
+        title: "Lakeside Cottage",
+        location: "321 Lakeview Drive, Lakeside",
+        propertyImage: "https://example.com/images/property10.jpg",
+        maxPrice: 500000,
+        minPrice: 450000,
+        description: "A quaint lakeside cottage with 3 bedrooms, 2 bathrooms, and a beautiful view of the lake. Perfect for a relaxing lakeside lifestyle."
+    },
+    {
+        title: "Urban Studio",
+        location: "654 City Plaza, Downtown",
+        propertyImage: "https://example.com/images/property11.jpg",
+        maxPrice: 300000,
+        minPrice: 250000,
+        description: "A compact urban studio with 1 bedroom, 1 bathroom, and a modern kitchen. Ideal for young professionals or singles looking for a convenient city location."
+    },
+    {
+        title: "Rural Farmhouse",
+        location: "987 Country Road, Ruralville",
+        propertyImage: "https://example.com/images/property12.jpg",
+        maxPrice: 400000,
+        minPrice: 350000,
+        description: "A spacious rural farmhouse with 4 bedrooms, 3 bathrooms, and a large plot of land. Perfect for those looking for a rural lifestyle and space for farming."
+    }
+];
+
+// Usage
+console.log(properties[11]); // Accessing property 12
+
+const newProperties = [
+    {
+        title: "Chic City Loft",
+        location: "101 Main St, Urbanville",
+        propertyImage: "https://example.com/images/property25.jpg",
+        maxPrice: 750000,
+        minPrice: 700000,
+        description: "A chic city loft with industrial design, 2 bedrooms, 2 bathrooms, and an open living area. Perfect for those seeking a modern urban lifestyle."
+    },
+    {
+        title: "Vintage Farmhouse",
+        location: "202 Country Rd, Farmland",
+        propertyImage: "https://example.com/images/property26.jpg",
+        maxPrice: 450000,
+        minPrice: 400000,
+        description: "A charming vintage farmhouse with 3 bedrooms, 2 bathrooms, and a large plot of land. Ideal for those looking for a rustic lifestyle."
+    },
+    {
+        title: "Luxury High-Rise Condo",
+        location: "303 Skyline Blvd, Metropolis",
+        propertyImage: "https://example.com/images/property27.jpg",
+        maxPrice: 1600000,
+        minPrice: 1500000,
+        description: "A luxury high-rise condo with 3 bedrooms, 3 bathrooms, and stunning city views. Includes access to exclusive building amenities."
+    },
+    {
+        title: "Suburban Split-Level",
+        location: "404 Oak St, Suburbia",
+        propertyImage: "https://example.com/images/property28.jpg",
+        maxPrice: 600000,
+        minPrice: 550000,
+        description: "A spacious suburban split-level home with 4 bedrooms, 3 bathrooms, and a large backyard. Ideal for growing families."
+    },
+    {
+        title: "Modern Townhouse",
+        location: "505 Elm St, Uptown",
+        propertyImage: "https://example.com/images/property29.jpg",
+        maxPrice: 800000,
+        minPrice: 750000,
+        description: "A sleek modern townhouse with 3 bedrooms, 2.5 bathrooms, and a rooftop terrace. Located in a trendy neighborhood."
+    },
+    {
+        title: "Eco-Conscious Tiny Home",
+        location: "606 Green Ave, Eco Village",
+        propertyImage: "https://example.com/images/property30.jpg",
+        maxPrice: 300000,
+        minPrice: 280000,
+        description: "An eco-conscious tiny home with 1 bedroom, 1 bathroom, and sustainable living features. Perfect for minimalist living."
+    },
+    {
+        title: "Beachfront Mansion",
+        location: "707 Shoreline Dr, Oceanview",
+        propertyImage: "https://example.com/images/property31.jpg",
+        maxPrice: 4500000,
+        minPrice: 4300000,
+        description: "A grand beachfront mansion with 7 bedrooms, 8 bathrooms, and direct beach access. Ideal for luxurious seaside living."
+    },
+    {
+        title: "Mountain Chalet",
+        location: "808 Alpine Rd, Mountain Village",
+        propertyImage: "https://example.com/images/property32.jpg",
+        maxPrice: 1200000,
+        minPrice: 1150000,
+        description: "A cozy mountain chalet with 4 bedrooms, 3 bathrooms, and stunning mountain views. Perfect for a winter retreat."
+    },
+    {
+        title: "Urban Penthouse",
+        location: "909 Central Ave, Downtown",
+        propertyImage: "https://example.com/images/property33.jpg",
+        maxPrice: 2500000,
+        minPrice: 2400000,
+        description: "A luxurious urban penthouse with 4 bedrooms, 5 bathrooms, and a private rooftop. Offers panoramic views of the city."
+    },
+    {
+        title: "Countryside Villa",
+        location: "1010 Country Lane, Rural Retreat",
+        propertyImage: "https://example.com/images/property34.jpg",
+        maxPrice: 950000,
+        minPrice: 900000,
+        description: "A beautiful countryside villa with 5 bedrooms, 4 bathrooms, and extensive gardens. Ideal for a tranquil lifestyle."
+    },
+    {
+        title: "Contemporary Cabin",
+        location: "1111 Forest Rd, Woodland",
+        propertyImage: "https://example.com/images/property35.jpg",
+        maxPrice: 500000,
+        minPrice: 450000,
+        description: "A contemporary cabin with 3 bedrooms, 2 bathrooms, and modern amenities. Located in a serene forest setting."
+    },
+    {
+        title: "Historic Mansion",
+        location: "1212 Heritage Blvd, Oldtown",
+        propertyImage: "https://example.com/images/property36.jpg",
+        maxPrice: 3200000,
+        minPrice: 3100000,
+        description: "A beautifully restored historic mansion with 6 bedrooms, 6 bathrooms, and elegant period details. Perfect for those appreciating history and luxury."
+    }
+];
+
+// Usage
+console.log(newProperties[11]); // Accessing property 12
+
+
+const newProperties = [
+    {
+        title: "Modern Penthouse",
+        location: "123 Skyline Blvd, Cityscape",
+        propertyImage: "https://example.com/images/property13.jpg",
+        maxPrice: 2200000,
+        minPrice: 2100000,
+        description: "A modern penthouse with breathtaking views, 3 bedrooms, 4 bathrooms, and a private terrace. Located in the heart of the city, perfect for luxury living."
+    },
+    {
+        title: "Seaside Bungalow",
+        location: "456 Oceanview Rd, Seaside",
+        propertyImage: "https://example.com/images/property14.jpg",
+        maxPrice: 750000,
+        minPrice: 700000,
+        description: "A cozy seaside bungalow with 2 bedrooms, 2 bathrooms, and stunning ocean views. Perfect for a peaceful and scenic lifestyle."
+    },
+    {
+        title: "Urban Loft",
+        location: "789 Industrial Ave, Downtown",
+        propertyImage: "https://example.com/images/property15.jpg",
+        maxPrice: 950000,
+        minPrice: 900000,
+        description: "A stylish urban loft with 2 bedrooms, 2 bathrooms, and an open-plan living area. Located in a vibrant neighborhood with plenty of amenities."
+    },
+    {
+        title: "Country Manor",
+        location: "321 Pasture Ln, Countryside",
+        propertyImage: "https://example.com/images/property16.jpg",
+        maxPrice: 1800000,
+        minPrice: 1700000,
+        description: "A grand country manor with 6 bedrooms, 5 bathrooms, and expansive grounds. Perfect for those seeking luxury in a rural setting."
+    },
+    {
+        title: "Historic Cottage",
+        location: "654 Heritage St, Old Town",
+        propertyImage: "https://example.com/images/property17.jpg",
+        maxPrice: 600000,
+        minPrice: 550000,
+        description: "A charming historic cottage with 3 bedrooms, 2 bathrooms, and a lovely garden. Located in a quaint historic district."
+    },
+    {
+        title: "Mountain Villa",
+        location: "987 Summit Dr, Mountain View",
+        propertyImage: "https://example.com/images/property18.jpg",
+        maxPrice: 2000000,
+        minPrice: 1900000,
+        description: "A luxurious mountain villa with 5 bedrooms, 6 bathrooms, and stunning mountain views. Ideal for a lavish retreat."
+    },
+    {
+        title: "Suburban Ranch",
+        location: "123 Ranch Rd, Suburbia",
+        propertyImage: "https://example.com/images/property19.jpg",
+        maxPrice: 800000,
+        minPrice: 750000,
+        description: "A spacious suburban ranch with 4 bedrooms, 3 bathrooms, and a large backyard. Perfect for families seeking comfort and space."
+    },
+    {
+        title: "Lake House",
+        location: "456 Lakeshore Dr, Lakeview",
+        propertyImage: "https://example.com/images/property20.jpg",
+        maxPrice: 1400000,
+        minPrice: 1350000,
+        description: "A stunning lake house with 4 bedrooms, 4 bathrooms, and direct lake access. Perfect for water enthusiasts and scenic living."
+    },
+    {
+        title: "Contemporary Home",
+        location: "789 Modern St, New Town",
+        propertyImage: "https://example.com/images/property21.jpg",
+        maxPrice: 1200000,
+        minPrice: 1150000,
+        description: "A sleek contemporary home with 5 bedrooms, 4 bathrooms, and a modern design. Located in a newly developed area with lots of amenities."
+    },
+    {
+        title: "Eco-Friendly Home",
+        location: "321 Green St, Eco Village",
+        propertyImage: "https://example.com/images/property22.jpg",
+        maxPrice: 550000,
+        minPrice: 500000,
+        description: "An eco-friendly home with 3 bedrooms, 2 bathrooms, and sustainable features. Ideal for environmentally conscious living."
+    },
+    {
+        title: "Victorian Villa",
+        location: "654 Queen St, Historic Town",
+        propertyImage: "https://example.com/images/property23.jpg",
+        maxPrice: 1600000,
+        minPrice: 1500000,
+        description: "A beautifully restored Victorian villa with 6 bedrooms, 5 bathrooms, and period features. Located in a charming historic district."
+    },
+    {
+        title: "Luxury Beach House",
+        location: "987 Ocean Blvd, Beachfront",
+        propertyImage: "https://example.com/images/property24.jpg",
+        maxPrice: 3000000,
+        minPrice: 2900000,
+        description: "A luxurious beach house with 5 bedrooms, 6 bathrooms, and direct beach access. Perfect for those seeking an opulent seaside lifestyle."
+    }
+];
+
+// Usage
+console.log(newProperties[11]); // Accessing property 12
+

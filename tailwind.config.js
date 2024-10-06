@@ -5,8 +5,12 @@ export default {
     "./src/**/*.{js,ts,jsx,tsx}",
   ],
   theme: {
-    extend: {},
+    extend: {
+      fontFamily: {
+        amatic: ['"Amatic SC"', 'sans-serif'],
+        gruppo: ['"Gruppo"', 'sans-serif'],
+      },
+    },
   },
-  plugins: [require('daisyui'),],
+  plugins: [require('daisyui')],
 }
-

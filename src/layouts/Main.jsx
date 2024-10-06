@@ -4,8 +4,8 @@ import { Outlet } from 'react-router-dom'
 
 const Main = () => {
   return (
-    <div>
-      <div className=''>
+    <div className='font-gruppo'>
+      <div>
         <Navbar></Navbar>
         <div className=' px-5 min-h-[calc(100vh-448px)]'>
           <Outlet></Outlet>

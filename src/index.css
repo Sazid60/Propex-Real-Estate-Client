@@ -1,3 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&family=Gruppo&display=swap');
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+
+/* .amatic-sc-regular {
+    font-family: "Amatic SC", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  }
+  
+
+
+
+  .gruppo-regular {
+    font-family: "Gruppo", sans-serif;
+    font-weight: 400;
+    font-style: normal;
+  } */
