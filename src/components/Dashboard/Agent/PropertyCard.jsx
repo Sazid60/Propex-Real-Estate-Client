@@ -16,7 +16,7 @@ const PropertyCard = ({ property, handleDelete }) => {
                 </h1>
             </figure>
             <div className="p-2">
-                <h2 className="font-bold text-sm md:text-sm xl:text-xl mb-2 uppercase text-center text-blue-600">{title}</h2>
+                <h2 className="font-bold text-sm md:text-sm xl:text-xl mb-2 uppercase text-center text-blue-600 font-amatic">{title}</h2>
                 <p className="mb-4 text-xs md:text-sm lg:text-sm text-center md:h-20 lg:h-14 xl:h-10">
                     {description.split(' ').slice(0, 15).join(' ') + (description.split(' ').length > 15 ? '...' : '')}
                 </p>
